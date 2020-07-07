@@ -1,0 +1,7 @@
+unit uBiblioteca;
+
+interface
+  procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
+implementation
+
+end.
