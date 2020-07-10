@@ -1,0 +1,5 @@
+inherited FormCadastroEstados: TFormCadastroEstados
+  Caption = 'Cadastro de Estados'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

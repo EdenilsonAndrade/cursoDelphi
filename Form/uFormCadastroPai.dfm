@@ -13,6 +13,7 @@ object FormCadastroPai: TFormCadastroPai
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnCabecalho: TPanel
@@ -22,9 +23,6 @@ object FormCadastroPai: TFormCadastroPai
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 672
-    ExplicitTop = 136
-    ExplicitWidth = 185
     object btnNovo: TButton
       Left = 0
       Top = 0
@@ -74,7 +72,10 @@ object FormCadastroPai: TFormCadastroPai
   object fdQryCadastro: TFDQuery
     Connection = dmDados.fdCon
     Transaction = fdTransaction
+    UpdateOptions.AssignedValues = [uvGeneratorName]
     UpdateObject = fdUpCadastro
+    SQL.Strings = (
+      '')
     Left = 872
     Top = 344
   end
@@ -84,7 +85,13 @@ object FormCadastroPai: TFormCadastroPai
     Top = 400
   end
   object fdTransaction: TFDTransaction
+    Connection = dmDados.fdCon
     Left = 872
     Top = 464
+  end
+  object dsCadastro: TDataSource
+    DataSet = fdQryCadastro
+    Left = 872
+    Top = 288
   end
 end

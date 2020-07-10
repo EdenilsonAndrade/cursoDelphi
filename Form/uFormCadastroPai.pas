@@ -21,11 +21,13 @@ type
     fdQryCadastro: TFDQuery;
     fdUpCadastro: TFDUpdateSQL;
     fdTransaction: TFDTransaction;
+    dsCadastro: TDataSource;
     procedure btnNovoClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,6 +55,7 @@ procedure TFormCadastroPai.btnExcluirClick(Sender: TObject);
 begin
   fdQryCadastro.Edit;
   fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+  fdTransaction.StartTransaction;
   fdQryCadastro.Post;
   fdTransaction.CommitRetaining;
 end;
@@ -61,8 +64,10 @@ procedure TFormCadastroPai.btnGravarClick(Sender: TObject);
 begin
   if fdQryCadastro.State in [dsEdit, dsInsert] then
   begin
+    fdTransaction.StartTransaction;
     fdQryCadastro.Post;
     fdTransaction.CommitRetaining;
+    ShowMessage('Cadastro Pronto');
   end;
 end;
 
@@ -78,6 +83,11 @@ end;
 procedure TFormCadastroPai.btnSairClick(Sender: TObject);
 begin
   Self.Close;
+end;
+
+procedure TFormCadastroPai.FormCreate(Sender: TObject);
+begin
+  fdQryCadastro.Open();
 end;
 
 end.

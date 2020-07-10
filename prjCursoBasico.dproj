@@ -122,7 +122,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Form\uFormCadastroCliente.pas">
-            <Form>FormCadastroPai1</Form>
+            <Form>FormCadastroCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\FormCadastroEstado.pas">
+            <Form>FormCadastroEstados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\FormCadastroCidade.pas">
+            <Form>FormCadastroCidades</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

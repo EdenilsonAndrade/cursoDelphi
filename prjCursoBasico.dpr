@@ -7,16 +7,20 @@ uses
   uBiblioteca in 'Classes\uBiblioteca.pas',
   UFormConfigBanco in 'Form\UFormConfigBanco.pas' {FormConfigBanco},
   uFormCadastroPai in 'Form\uFormCadastroPai.pas' {FormCadastroPai},
-  uFormCadastroCliente in 'Form\uFormCadastroCliente.pas' {FormCadastroPai1};
+  uFormCadastroCliente in 'Form\uFormCadastroCliente.pas' {FormCadastroCliente},
+  FormCadastroEstado in 'Form\FormCadastroEstado.pas' {FormCadastroEstados},
+  FormCadastroCidade in 'Form\FormCadastroCidade.pas' {FormCadastroCidades};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
-  Application.CreateForm(TFormCadastroPai1, FormCadastroPai1);
+  Application.CreateForm(TdmDados, dmDados);
+  Application.CreateForm(TFormCadastroCliente, FormCadastroCliente);
+  Application.CreateForm(TFormCadastroEstados, FormCadastroEstados);
+  Application.CreateForm(TFormCadastroCidades, FormCadastroCidades);
   Application.Run;
 end.

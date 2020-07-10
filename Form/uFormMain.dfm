@@ -10,6 +10,7 @@ object FormMain: TFormMain
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   WindowState = wsMaximized
   PixelsPerInch = 96
@@ -22,5 +23,24 @@ object FormMain: TFormMain
     Caption = 'Button1'
     TabOrder = 0
     OnClick = Button1Click
+  end
+  object MainMenu1: TMainMenu
+    Left = 104
+    Top = 104
+    object Cadastros1: TMenuItem
+      Caption = 'Cadastros'
+      object Clientes1: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Clientes1Click
+      end
+      object Estados1: TMenuItem
+        Caption = 'Estados'
+        OnClick = Estados1Click
+      end
+      object Cidades1: TMenuItem
+        Caption = 'Cidades'
+        OnClick = Cidades1Click
+      end
+    end
   end
 end
