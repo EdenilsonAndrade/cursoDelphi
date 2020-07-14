@@ -1,25 +1,42 @@
 unit uFormMain;
 
 interface
-
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus;
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
+  Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
+  AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
+  AdvOfficeStatusBarStylers, AdvGlowButton;
 
 type
-  TFormMain = class(TForm)
-    Button1: TButton;
-    MainMenu1: TMainMenu;
-    Cadastros1: TMenuItem;
-    Clientes1: TMenuItem;
-    Estados1: TMenuItem;
-    Cidades1: TMenuItem;
-    procedure Button1Click(Sender: TObject);
-    procedure Clientes1Click(Sender: TObject);
-    procedure Estados1Click(Sender: TObject);
-    procedure Cidades1Click(Sender: TObject);
+  TFormMain = class(TAdvToolBarForm)
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvPage1: TAdvPage;
+    AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler;
+    AdvToolBar1: TAdvToolBar;
+    AdvOfficeStatusBar1: TAdvOfficeStatusBar;
+    AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
+    AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
+    AdvShapeButton1: TAdvShapeButton;
+    AdvPage2: TAdvPage;
+    AdvPage3: TAdvPage;
+    AdvToolBar2: TAdvToolBar;
+    AdvGlowButton2: TAdvGlowButton;
+    AdvGlowButton1: TAdvGlowButton;
+    AdvGlowButton3: TAdvGlowButton;
+    AdvToolBarSeparator1: TAdvToolBarSeparator;
+    AdvToolBarSeparator2: TAdvToolBarSeparator;
+    AdvToolBar3: TAdvToolBar;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    AdvToolBarSeparator4: TAdvToolBarSeparator;
+    AdvGlowButton6: TAdvGlowButton;
+    procedure AdvGlowButton3Click(Sender: TObject);
+    procedure AdvGlowButton1Click(Sender: TObject);
+    procedure AdvGlowButton2Click(Sender: TObject);
+    procedure AdvGlowButton6Click(Sender: TObject);
   private
     { Private declarations }
+  protected
+    { Protected declarations }
   public
     { Public declarations }
   end;
@@ -31,26 +48,48 @@ implementation
 
 {$R *.dfm}
 
-uses uFormCadastroCliente, FormCadastroEstado, FormCadastroCidade;
+uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
+  frmConsultaClientes;
 
-procedure TFormMain.Button1Click(Sender: TObject);
+
+procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
-  ShowMessage('Ok');
+  FormCadastroCidades := TFormCadastroCidades.Create(Self);
+  try
+    FormCadastroCidades.ShowModal;
+  finally
+    FreeAndNil(FormCadastroCidades);
+  end;
 end;
 
-procedure TFormMain.Cidades1Click(Sender: TObject);
+procedure TFormMain.AdvGlowButton2Click(Sender: TObject);
 begin
-  FormCadastroCidades.Show;
+  FormCadastroEstados := TFormCadastroEstados.Create(Self);
+  try
+    FormCadastroEstados.ShowModal;
+  finally
+    FreeAndNil(FormCadastroEstados);
+  end;
 end;
 
-procedure TFormMain.Clientes1Click(Sender: TObject);
+procedure TFormMain.AdvGlowButton3Click(Sender: TObject);
 begin
-  FormCadastroCliente.Show;
+  FormCadastroCliente := TFormCadastroCliente.Create(Self);
+  try
+    FormCadastroCliente.ShowModal;
+  finally
+    FreeAndNil(FormCadastroCliente);
+  end;
 end;
 
-procedure TFormMain.Estados1Click(Sender: TObject);
+procedure TFormMain.AdvGlowButton6Click(Sender: TObject);
 begin
-  FormCadastroEstados.Show;
+  try
+    FormConsultaClientes := TFormConsultaClientes.Create(Self);
+    FormConsultaClientes.Show
+  finally
+
+  end;
 end;
 
 end.

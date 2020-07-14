@@ -1,9 +1,9 @@
 inherited FormCadastroCidades: TFormCadastroCidades
   Caption = 'Cadastro de Cidades'
-  ClientHeight = 230
-  ClientWidth = 610
-  ExplicitWidth = 616
-  ExplicitHeight = 259
+  ClientHeight = 200
+  ClientWidth = 561
+  ExplicitWidth = 567
+  ExplicitHeight = 229
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -31,7 +31,8 @@ inherited FormCadastroCidades: TFormCadastroCidades
     FocusControl = DBEdit3
   end
   inherited pnCabecalho: TPanel
-    Width = 610
+    Width = 561
+    ExplicitWidth = 610
     inherited btnSair: TButton
       Left = 465
       ExplicitLeft = 465

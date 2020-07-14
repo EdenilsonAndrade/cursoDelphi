@@ -103,10 +103,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Form\uFormMain.pas">
-            <Form>FormMain</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Form\uDmDados.pas">
             <Form>dmDados</Form>
             <FormType>dfm</FormType>
@@ -131,6 +127,23 @@
         </DCCReference>
         <DCCReference Include="Form\FormCadastroCidade.pas">
             <Form>FormCadastroCidades</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Shared\uLookup.pas">
+            <Form>Lookup</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Form\uFormMain.pas">
+            <Form>FormMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\frmFiltroPai.pas">
+            <Form>FormFiltroPai</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Form\frmConsultaClientes.pas">
+            <Form>FormConsultaClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Vcl.Mask, uFormCadastroPai;
+  Vcl.DBCtrls, Vcl.Mask, uFormCadastroPai, uLookup;
 
 type
   TFormCadastroCliente = class(TFormCadastroPai)
@@ -51,6 +51,13 @@ type
     DBEdit10: TDBEdit;
     Label12: TLabel;
     DBEdit11: TDBEdit;
+    fdQryCadastroID_CIDADE: TIntegerField;
+    fdQryCadastroID_ESTADO: TIntegerField;
+    Label13: TLabel;
+    Label14: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,5 +70,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormCadastroCliente.FormShow(Sender: TObject);
+begin
+  inherited;
+  //  carrega as informações do cadastro de estados
+  Lookup.fdQryEstados.Open();
+  Lookup.fdQryEstados.FetchAll;
+  //  carrega os dados do cadastro de cidades
+  Lookup.fdQryCidades.Open();
+  lookup.fdQryCidades.FetchAll;
+end;
 
 end.

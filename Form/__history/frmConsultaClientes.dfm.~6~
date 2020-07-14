@@ -1,0 +1,43 @@
+inherited FormConsultaClientes: TFormConsultaClientes
+  Caption = 'Consulta de Clientes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited Label1: TLabel
+      Width = 80
+      Caption = 'Nome do cliente:'
+      ExplicitWidth = 80
+    end
+    inherited Edit1: TEdit
+      Top = 32
+      Width = 297
+      ExplicitTop = 32
+      ExplicitWidth = 297
+    end
+    inherited btnConsultar: TButton
+      Left = 311
+      Top = 30
+      Caption = 'Consultar'
+      ExplicitLeft = 311
+      ExplicitTop = 30
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 121
+    Width = 1092
+    Height = 261
+    Align = alClient
+    DataSource = dsConsulta
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  inherited fdQryConsulta: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM CLIENTE')
+  end
+end

@@ -1,0 +1,25 @@
+inherited FormConsultaClientes: TFormConsultaClientes
+  Caption = 'Consulta de Clientes'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited Label1: TLabel
+      Width = 80
+      Caption = 'Nome do cliente:'
+      ExplicitWidth = 80
+    end
+    inherited Edit1: TEdit
+      Top = 32
+      Width = 297
+      ExplicitTop = 32
+      ExplicitWidth = 297
+    end
+    inherited btnConsultar: TButton
+      Left = 664
+      Top = 49
+      Caption = 'Consultar'
+      ExplicitLeft = 664
+      ExplicitTop = 49
+    end
+  end
+end
