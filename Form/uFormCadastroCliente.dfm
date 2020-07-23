@@ -17,7 +17,7 @@ inherited FormCadastroCliente: TFormCadastroCliente
     Width = 78
     Height = 13
     Caption = 'RAZAO_SOCIAL'
-    FocusControl = DBEdit2
+    FocusControl = edtRazaoSocial
   end
   object Label3: TLabel [2]
     Left = 399
@@ -121,7 +121,7 @@ inherited FormCadastroCliente: TFormCadastroCliente
     DataSource = dsCadastro
     TabOrder = 1
   end
-  object DBEdit2: TDBEdit [16]
+  object edtRazaoSocial: TDBEdit [16]
     Left = 80
     Top = 72
     Width = 313
@@ -248,6 +248,8 @@ inherited FormCadastroCliente: TFormCadastroCliente
     TabOrder = 14
   end
   inherited fdQryCadastro: TFDQuery
+    BeforeInsert = fdQryCadastroBeforeInsert
+    BeforeEdit = fdQryCadastroBeforeEdit
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_CLIENTE_ID'

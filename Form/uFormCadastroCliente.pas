@@ -30,7 +30,7 @@ type
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    edtRazaoSocial: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
     Label4: TLabel;
@@ -58,6 +58,8 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
     procedure FormShow(Sender: TObject);
+    procedure fdQryCadastroBeforeInsert(DataSet: TDataSet);
+    procedure fdQryCadastroBeforeEdit(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -71,6 +73,20 @@ implementation
 
 {$R *.dfm}
 
+procedure TFormCadastroCliente.fdQryCadastroBeforeEdit(DataSet: TDataSet);
+begin
+  inherited;
+  if Self.Visible then
+    edtRazaoSocial.SetFocus;
+end;
+
+procedure TFormCadastroCliente.fdQryCadastroBeforeInsert(DataSet: TDataSet);
+begin
+  inherited;
+  if Self.Visible then
+    edtRazaoSocial.SetFocus;
+end;
+
 procedure TFormCadastroCliente.FormShow(Sender: TObject);
 begin
   inherited;
@@ -80,6 +96,8 @@ begin
   //  carrega os dados do cadastro de cidades
   Lookup.fdQryCidades.Open();
   lookup.fdQryCidades.FetchAll;
+
+  edtRazaoSocial.SetFocus;
 end;
 
 end.

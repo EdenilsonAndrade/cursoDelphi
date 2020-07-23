@@ -31,7 +31,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema de gest'#227'o'
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
     Hints.MDICloseBtnHint = 'Close'
@@ -339,7 +339,6 @@ object FormMain: TFormMain
         Top = 3
         Width = 286
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
         Caption = 'Principais bot'#245'es'
