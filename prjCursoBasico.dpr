@@ -12,7 +12,8 @@ uses
   uLookup in 'Shared\uLookup.pas' {Lookup: TDataModule},
   uFormMain in 'Form\uFormMain.pas' {FormMain},
   frmFiltroPai in 'Form\frmFiltroPai.pas' {FormFiltroPai},
-  frmConsultaClientes in 'Form\frmConsultaClientes.pas' {FormConsultaClientes};
+  frmConsultaClientes in 'Form\frmConsultaClientes.pas' {FormConsultaClientes},
+  uFormCadastroFornecedor in 'Form\uFormCadastroFornecedor.pas' {FormCadastroFornecedor};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
+  Application.CreateForm(TFormCadastroFornecedor, FormCadastroFornecedor);
   Application.Run;
 end.

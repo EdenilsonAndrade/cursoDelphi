@@ -1,0 +1,60 @@
+unit uFormCadastroFornecedor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormCadastroPai, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.DBCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, cxDBEdit, cxTextEdit, cxMaskEdit, cxSpinEdit;
+
+type
+  TFormCadastroFornecedor = class(TFormCadastroPai)
+    fdQryCadastroID_FORNECEDOR: TIntegerField;
+    fdQryCadastroRAZAO_SOCIAL: TWideStringField;
+    fdQryCadastroFANTASIA: TWideStringField;
+    fdQryCadastroCNPJ: TWideStringField;
+    fdQryCadastroENDERECO: TWideStringField;
+    fdQryCadastroBAIRRO: TWideStringField;
+    fdQryCadastroID_CIDADE: TIntegerField;
+    fdQryCadastroID_ESTADO: TIntegerField;
+    fdQryCadastroEMAIL: TWideStringField;
+    Label1: TLabel;
+    cxDBSpinEdit1: TcxDBSpinEdit;
+    Label2: TLabel;
+    cxDBTextEdit1: TcxDBTextEdit;
+    Label3: TLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    Label4: TLabel;
+    cxDBTextEdit3: TcxDBTextEdit;
+    Label5: TLabel;
+    cxDBTextEdit4: TcxDBTextEdit;
+    Label6: TLabel;
+    cxDBTextEdit5: TcxDBTextEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    cxDBTextEdit6: TcxDBTextEdit;
+    dblCidade: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormCadastroFornecedor: TFormCadastroFornecedor;
+
+implementation
+
+{$R *.dfm}
+
+uses uLookup, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer,
+  cxEdit, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, cxDBEdit, cxTextEdit, cxMaskEdit, cxSpinEdit;
+
+end.

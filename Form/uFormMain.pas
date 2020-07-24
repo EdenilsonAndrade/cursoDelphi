@@ -29,10 +29,13 @@ type
     AdvToolBarSeparator3: TAdvToolBarSeparator;
     AdvToolBarSeparator4: TAdvToolBarSeparator;
     AdvGlowButton6: TAdvGlowButton;
+    btnCadastroFornecedor: TAdvGlowButton;
+    AdvToolBarSeparator5: TAdvToolBarSeparator;
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
     procedure AdvGlowButton6Click(Sender: TObject);
+    procedure btnCadastroFornecedorClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -49,7 +52,7 @@ implementation
 {$R *.dfm}
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
-  frmConsultaClientes;
+  frmConsultaClientes, uFormCadastroFornecedor;
 
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
@@ -89,6 +92,16 @@ begin
     FormConsultaClientes.Show
   finally
 
+  end;
+end;
+
+procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
+begin
+  FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
+  try
+    FormCadastroFornecedor.ShowModal;
+  finally
+    FreeAndNil(FormCadastroFornecedor);
   end;
 end;
 

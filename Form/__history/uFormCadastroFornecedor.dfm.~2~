@@ -1,0 +1,203 @@
+inherited FormCadastroFornecedor: TFormCadastroFornecedor
+  Caption = 'FormCadastroFornecedor'
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 8
+    Top = 64
+    Width = 33
+    Height = 13
+    Caption = 'C'#243'digo'
+    FocusControl = cxDBSpinEdit1
+  end
+  object Label2: TLabel [1]
+    Left = 8
+    Top = 104
+    Width = 60
+    Height = 13
+    Caption = 'Raz'#227'o Social'
+    FocusControl = cxDBTextEdit1
+  end
+  object Label3: TLabel [2]
+    Left = 8
+    Top = 144
+    Width = 41
+    Height = 13
+    Caption = 'Fantasia'
+    FocusControl = cxDBTextEdit2
+  end
+  object Label4: TLabel [3]
+    Left = 8
+    Top = 187
+    Width = 25
+    Height = 13
+    Caption = 'CNPJ'
+    FocusControl = cxDBTextEdit3
+  end
+  object Label5: TLabel [4]
+    Left = 8
+    Top = 224
+    Width = 45
+    Height = 13
+    Caption = 'Endere'#231'o'
+    FocusControl = cxDBTextEdit4
+  end
+  object Label6: TLabel [5]
+    Left = 8
+    Top = 264
+    Width = 28
+    Height = 13
+    Caption = 'Bairro'
+    FocusControl = cxDBTextEdit5
+  end
+  object Label7: TLabel [6]
+    Left = 8
+    Top = 304
+    Width = 33
+    Height = 13
+    Caption = 'Cidade'
+  end
+  object Label8: TLabel [7]
+    Left = 8
+    Top = 344
+    Width = 33
+    Height = 13
+    Caption = 'Estado'
+  end
+  object Label9: TLabel [8]
+    Left = 8
+    Top = 387
+    Width = 28
+    Height = 13
+    Caption = 'E-mail'
+    FocusControl = cxDBTextEdit6
+  end
+  object cxDBSpinEdit1: TcxDBSpinEdit [10]
+    Left = 8
+    Top = 80
+    DataBinding.DataField = 'ID_FORNECEDOR'
+    DataBinding.DataSource = dsCadastro
+    Enabled = False
+    TabOrder = 1
+    Width = 86
+  end
+  object cxDBTextEdit1: TcxDBTextEdit [11]
+    Left = 8
+    Top = 120
+    DataBinding.DataField = 'RAZAO_SOCIAL'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 2
+    Width = 385
+  end
+  object cxDBTextEdit2: TcxDBTextEdit [12]
+    Left = 8
+    Top = 160
+    DataBinding.DataField = 'FANTASIA'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 3
+    Width = 385
+  end
+  object cxDBTextEdit3: TcxDBTextEdit [13]
+    Left = 8
+    Top = 200
+    DataBinding.DataField = 'CNPJ'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 4
+    Width = 121
+  end
+  object cxDBTextEdit4: TcxDBTextEdit [14]
+    Left = 8
+    Top = 240
+    DataBinding.DataField = 'ENDERECO'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 5
+    Width = 121
+  end
+  object cxDBTextEdit5: TcxDBTextEdit [15]
+    Left = 8
+    Top = 280
+    DataBinding.DataField = 'BAIRRO'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 6
+    Width = 121
+  end
+  object cxDBTextEdit6: TcxDBTextEdit [16]
+    Left = 8
+    Top = 400
+    DataBinding.DataField = 'EMAIL'
+    DataBinding.DataSource = dsCadastro
+    TabOrder = 7
+    Width = 121
+  end
+  object dblCidade: TDBLookupComboBox [17]
+    Left = 8
+    Top = 321
+    Width = 145
+    Height = 21
+    DataField = 'ID_CIDADE'
+    DataSource = dsCadastro
+    KeyField = 'ID_CIDADE'
+    ListField = 'NOME'
+    ListSource = Lookup.DdsCidades
+    TabOrder = 8
+  end
+  object DBLookupComboBox2: TDBLookupComboBox [18]
+    Left = 8
+    Top = 360
+    Width = 60
+    Height = 21
+    DataField = 'ID_ESTADO'
+    DataSource = dsCadastro
+    KeyField = 'ID_ESTADO'
+    ListField = 'COD_UF'
+    ListSource = Lookup.dsEstados
+    TabOrder = 9
+  end
+  inherited fdQryCadastro: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM FORNECEDOR')
+    object fdQryCadastroID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryCadastroRAZAO_SOCIAL: TWideStringField
+      FieldName = 'RAZAO_SOCIAL'
+      Origin = 'RAZAO_SOCIAL'
+      Size = 80
+    end
+    object fdQryCadastroFANTASIA: TWideStringField
+      FieldName = 'FANTASIA'
+      Origin = 'FANTASIA'
+      Size = 80
+    end
+    object fdQryCadastroCNPJ: TWideStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+    end
+    object fdQryCadastroENDERECO: TWideStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 255
+    end
+    object fdQryCadastroBAIRRO: TWideStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Size = 50
+    end
+    object fdQryCadastroID_CIDADE: TIntegerField
+      FieldName = 'ID_CIDADE'
+      Origin = 'ID_CIDADE'
+    end
+    object fdQryCadastroID_ESTADO: TIntegerField
+      FieldName = 'ID_ESTADO'
+      Origin = 'ID_ESTADO'
+    end
+    object fdQryCadastroEMAIL: TWideStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 255
+    end
+  end
+end
