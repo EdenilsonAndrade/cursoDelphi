@@ -1,0 +1,60 @@
+unit uFormConsultaFornecedores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmFiltroPai, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFormConsultaFornecedor = class(TFormFiltroPai)
+    fdQryConsultaID_FORNECEDOR: TIntegerField;
+    fdQryConsultaRAZAO_SOCIAL: TWideStringField;
+    fdQryConsultaFANTASIA: TWideStringField;
+    fdQryConsultaCNPJ: TWideStringField;
+    fdQryConsultaENDERECO: TWideStringField;
+    fdQryConsultaBAIRRO: TWideStringField;
+    fdQryConsultaID_CIDADE: TIntegerField;
+    fdQryConsultaID_ESTADO: TIntegerField;
+    fdQryConsultaEMAIL: TWideStringField;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    edtCNPJ: TEdit;
+  private
+    procedure Consultar;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormConsultaFornecedor: TFormConsultaFornecedor;
+
+implementation
+
+{$R *.dfm}
+
+{ TFormFiltroPai1 }
+
+procedure TFormConsultaFornecedor.Consultar;
+begin
+  fdQryConsulta.Close;
+  fdQryConsulta.SQL.Clear;
+  fdQryConsulta.SQL.Add('SELECT * FROM FORNECEDOR ');
+  fdQryConsulta.SQL.Add('WHERE 1 = 1 ');
+
+  if edtConsulta.Text <> '' then
+    fdQryConsulta.SQL.Add('AND UPPER(RAZAO_SOCIAL) LIKE '+QuotedStr('%' + UpperCase(edtConsulta.text) + '%'));
+
+  if edtCNPJ.Text <> '' then
+    fdQryConsulta.SQL.Add(' AND UPPER(REPLACE(REPLACE(REPLACE(CPF_CNPJ, ''.'',''''),''-'',''''),''/'','''') ) LIKE ' +QuotedStr('%'+UpperCase(edtCNPJ.Text)+'%'));
+
+  fdQryConsulta.Open();
+  fdQryConsulta.FetchAll;
+end;
+
+end.

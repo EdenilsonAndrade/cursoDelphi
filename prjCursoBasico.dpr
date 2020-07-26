@@ -13,7 +13,9 @@ uses
   uFormMain in 'Form\uFormMain.pas' {FormMain},
   frmFiltroPai in 'Form\frmFiltroPai.pas' {FormFiltroPai},
   frmConsultaClientes in 'Form\frmConsultaClientes.pas' {FormConsultaClientes},
-  uFormCadastroFornecedor in 'Form\uFormCadastroFornecedor.pas' {FormCadastroFornecedor};
+  uFormCadastroFornecedor in 'Form\uFormCadastroFornecedor.pas' {FormCadastroFornecedor},
+  uFormConsultaFornecedores in 'Form\uFormConsultaFornecedores.pas' {FormConsultaFornecedor},
+  uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos};
 
 {$R *.res}
 
@@ -24,6 +26,5 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
-  Application.CreateForm(TFormCadastroFornecedor, FormCadastroFornecedor);
   Application.Run;
 end.

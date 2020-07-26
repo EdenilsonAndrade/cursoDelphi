@@ -4,8 +4,8 @@
     <Transaction>2020/06/11 14:37:41.000.527,=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/06/20 14:09:33.000.052,=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/06/29 20:46:12.000.626,=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/29 20:46:35.000.425,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormMain.dfm=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/06/29 20:46:35.000.425,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormMain.pas=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/06/29 20:46:35.000.425,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormMain.dfm=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2020/06/29 20:46:45.000.189,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\prjCursoBasico.dproj=C:\Users\Avell\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
     <Transaction>2020/06/29 21:03:09.000.538,=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2020/06/29 21:06:37.000.204,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uDmDados.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
@@ -40,10 +40,16 @@
     <Transaction>2020/07/13 19:55:06.000.193,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\frmFiltroPai.dfm</Transaction>
     <Transaction>2020/07/13 19:55:06.000.193,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\frmFiltroPai.pas</Transaction>
     <Transaction>2020/07/13 20:15:39.000.906,=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
-    <Transaction>2020/07/13 20:16:46.000.192,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\frmConsultaClientes.pas</Transaction>
     <Transaction>2020/07/13 20:16:46.000.192,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\frmConsultaClientes.dfm</Transaction>
+    <Transaction>2020/07/13 20:16:46.000.192,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\frmConsultaClientes.pas</Transaction>
     <Transaction>2020/07/23 20:17:44.000.290,=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
-    <Transaction>2020/07/23 20:18:34.000.566,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormCadastroFornecedor.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
     <Transaction>2020/07/23 20:18:34.000.566,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormCadastroFornecedor.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
+    <Transaction>2020/07/23 20:18:34.000.566,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormCadastroFornecedor.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
+    <Transaction>2020/07/26 09:58:27.000.710,=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
+    <Transaction>2020/07/26 09:59:28.000.355,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormConsultaFornecedores.dfm</Transaction>
+    <Transaction>2020/07/26 09:59:28.000.355,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormConsultaFornecedores.pas</Transaction>
+    <Transaction>2020/07/26 10:36:26.119,=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
+    <Transaction>2020/07/26 10:36:45.116,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormConsultaProdutos.dfm=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
+    <Transaction>2020/07/26 10:36:45.116,C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Form\uFormConsultaProdutos.pas=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

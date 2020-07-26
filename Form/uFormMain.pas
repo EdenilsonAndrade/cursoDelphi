@@ -28,14 +28,19 @@ type
     AdvToolBar3: TAdvToolBar;
     AdvToolBarSeparator3: TAdvToolBarSeparator;
     AdvToolBarSeparator4: TAdvToolBarSeparator;
-    AdvGlowButton6: TAdvGlowButton;
+    btnConsultaFornecedor: TAdvGlowButton;
     btnCadastroFornecedor: TAdvGlowButton;
     AdvToolBarSeparator5: TAdvToolBarSeparator;
+    btnConsultaCliente: TAdvGlowButton;
+    btnConsultarProdutos: TAdvGlowButton;
+    AdvToolBarSeparator6: TAdvToolBarSeparator;
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
-    procedure AdvGlowButton6Click(Sender: TObject);
+    procedure btnConsultaFornecedorClick(Sender: TObject);
     procedure btnCadastroFornecedorClick(Sender: TObject);
+    procedure btnConsultaClienteClick(Sender: TObject);
+    procedure btnConsultarProdutosClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -52,7 +57,8 @@ implementation
 {$R *.dfm}
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
-  frmConsultaClientes, uFormCadastroFornecedor;
+  frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
+  uFormConsultaProdutos;
 
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
@@ -85,11 +91,31 @@ begin
   end;
 end;
 
-procedure TFormMain.AdvGlowButton6Click(Sender: TObject);
+procedure TFormMain.btnConsultaClienteClick(Sender: TObject);
 begin
   try
     FormConsultaClientes := TFormConsultaClientes.Create(Self);
     FormConsultaClientes.Show
+  finally
+
+  end;
+end;
+
+procedure TFormMain.btnConsultaFornecedorClick(Sender: TObject);
+begin
+  try
+    FormConsultaFornecedor := TFormConsultaFornecedor.Create(Self);
+    FormConsultaFornecedor.Show
+  finally
+
+  end;
+end;
+
+procedure TFormMain.btnConsultarProdutosClick(Sender: TObject);
+begin
+  try
+    FormConsultaProdutos := TFormConsultaProdutos.Create(Self);
+    FormConsultaProdutos.Show
   finally
 
   end;
