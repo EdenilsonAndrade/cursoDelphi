@@ -43,7 +43,6 @@ type
     procedure btnVisualizarClick(Sender: TObject);
   private
     procedure Consultar;
-    procedure ValidaQryVazia;
     { Private declarations }
   public
     { Public declarations }
@@ -81,7 +80,6 @@ end;
 procedure TFormConsultaClientes.btnVisualizarClick(Sender: TObject);
 begin
   inherited;
-  ValidaQryVazia;
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
   try
     FormCadastroCliente.fdQryCadastro.Locate('ID_CLIENTE', fdQryConsultaID_CLIENTE.AsInteger,[]);
@@ -114,13 +112,6 @@ begin
   fdQryConsulta.FetchAll;
 end;
 
-procedure TFormConsultaClientes.ValidaQryVazia;
-begin
-  if fdQryConsulta.IsEmpty then
-  begin
-    Application.MessageBox('Não contém nenhum registro selecionado!','Atenção',MB_OK+MB_APPLMODAL);
-    Abort;
-  end;
-end;
+
 
 end.

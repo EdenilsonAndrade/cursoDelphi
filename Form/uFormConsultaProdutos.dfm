@@ -1,5 +1,5 @@
 inherited FormConsultaProdutos: TFormConsultaProdutos
-  Caption = 'FormConsultaProdutos'
+  Caption = 'Consulta de produtos'
   FormStyle = fsMDIChild
   Visible = True
   WindowState = wsMaximized
@@ -50,9 +50,45 @@ inherited FormConsultaProdutos: TFormConsultaProdutos
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
   end
+  object btnNovo: TButton [2]
+    Left = 360
+    Top = 33
+    Width = 75
+    Height = 25
+    Caption = 'Novo'
+    TabOrder = 2
+    OnClick = btnNovoClick
+  end
+  object btnVisualizar: TButton [3]
+    Left = 441
+    Top = 33
+    Width = 75
+    Height = 25
+    Caption = 'Visualizar'
+    TabOrder = 3
+    OnClick = btnVisualizarClick
+  end
   inherited fdQryConsulta: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     SQL.Strings = (
-      'SELECT * FROM PRODUTO')
+      ''
+      'SELECT P.ID_PRODUTO, '
+      '       P.DESCRICAO, '
+      '       P.QTDE, '
+      '       P.CUSTO, '
+      '       P.V_UNITARIO, '
+      '       P.UNIDADE, '
+      '       P.PESO_LIQUIDO, '
+      '       P.PESO_BRUTO, '
+      '       P.FABRICANTE, '
+      '       P.MARCA_MODELO, '
+      '       F.RAZAO_SOCIAL FORNECEDOR '
+      '    FROM PRODUTO P '
+      
+        '    LEFT JOIN FORNECEDOR F ON (F.ID_FORNECEDOR = P.ID_FORNECEDOR' +
+        ') '
+      '   WHERE 1 = 1 ')
     object fdQryConsultaID_PRODUTO: TIntegerField
       FieldName = 'ID_PRODUTO'
       Origin = 'ID_PRODUTO'
@@ -99,9 +135,13 @@ inherited FormConsultaProdutos: TFormConsultaProdutos
       Origin = 'MARCA_MODELO'
       Size = 255
     end
-    object fdQryConsultaID_FORNECEDOR: TIntegerField
-      FieldName = 'ID_FORNECEDOR'
-      Origin = 'ID_FORNECEDOR'
+    object fdQryConsultaFORNECEDOR: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FORNECEDOR'
+      Origin = 'RAZAO_SOCIAL'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 80
     end
   end
 end

@@ -12,6 +12,9 @@ uses
 
 type
   TFormConsultaProdutos = class(TFormFiltroPai)
+    DBGrid1: TDBGrid;
+    edtDescricao: TEdit;
+    Label2: TLabel;
     fdQryConsultaID_PRODUTO: TIntegerField;
     fdQryConsultaDESCRICAO: TWideStringField;
     fdQryConsultaQTDE: TSingleField;
@@ -22,11 +25,12 @@ type
     fdQryConsultaPESO_BRUTO: TSingleField;
     fdQryConsultaFABRICANTE: TWideStringField;
     fdQryConsultaMARCA_MODELO: TWideStringField;
-    fdQryConsultaID_FORNECEDOR: TIntegerField;
-    DBGrid1: TDBGrid;
-    edtDescricao: TEdit;
-    Label2: TLabel;
+    fdQryConsultaFORNECEDOR: TWideStringField;
+    btnNovo: TButton;
+    btnVisualizar: TButton;
     procedure btnConsultarClick(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnVisualizarClick(Sender: TObject);
   private
     procedure Consultar;
     { Private declarations }
@@ -41,10 +45,36 @@ implementation
 
 {$R *.dfm}
 
+uses uFormCadastroProduto;
+
 procedure TFormConsultaProdutos.btnConsultarClick(Sender: TObject);
 begin
   inherited;
   Consultar;
+end;
+
+procedure TFormConsultaProdutos.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  FormCadastroProduto:= TFormCadastroProduto.Create(Self);
+  try
+    FormCadastroProduto.fdQryCadastro.Insert;
+    FormCadastroProduto.ShowModal;
+  finally
+    FreeAndNil(FormCadastroProduto);
+  end;
+end;
+
+procedure TFormConsultaProdutos.btnVisualizarClick(Sender: TObject);
+begin
+  inherited;
+  FormCadastroProduto := TFormCadastroProduto.Create(Self);
+  try
+    FormCadastroProduto.fdQryCadastro.Locate('ID_PRODUTO', fdQryConsultaID_PRODUTO.AsInteger,[]);
+    FormCadastroProduto.ShowModal;
+  finally
+    FreeAndNil(FormCadastroProduto);
+  end;
 end;
 
 procedure TFormConsultaProdutos.Consultar;
@@ -63,7 +93,7 @@ begin
   fdQryConsulta.SQL.Add('       P.MARCA_MODELO, ');
   fdQryConsulta.SQL.Add('       F.RAZAO_SOCIAL FORNECEDOR ');
   fdQryConsulta.SQL.Add('    FROM PRODUTO P ');
-  fdQryConsulta.SQL.Add('    LEFT JOIN FORNECEDOR F ON (F.ID_FORNECEDOR = P.ID_FORNECEDOR) ');
+  fdQryConsulta.SQL.Add('    LEFT JOIN FORNECEDOR F ON F.ID_FORNECEDOR = P.ID_FORNECEDOR ');
   fdQryConsulta.SQL.Add('   WHERE 1 = 1 ');
 
   if StrToIntDef(edtConsulta.Text,0) > 0 then

@@ -33,6 +33,24 @@ inherited FormConsultaFornecedor: TFormConsultaFornecedor
       Height = 21
       TabOrder = 3
     end
+    object btnNovo: TButton
+      Left = 585
+      Top = 33
+      Width = 75
+      Height = 25
+      Caption = 'Novo'
+      TabOrder = 4
+      OnClick = btnNovoClick
+    end
+    object btnVisualizar: TButton
+      Left = 666
+      Top = 33
+      Width = 75
+      Height = 25
+      Caption = 'Visualizar'
+      TabOrder = 5
+      OnClick = btnVisualizarClick
+    end
   end
   object DBGrid1: TDBGrid [1]
     Left = 0

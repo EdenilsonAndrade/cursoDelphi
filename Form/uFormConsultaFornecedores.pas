@@ -24,7 +24,11 @@ type
     DBGrid1: TDBGrid;
     Label2: TLabel;
     edtCNPJ: TEdit;
+    btnNovo: TButton;
+    btnVisualizar: TButton;
     procedure btnConsultarClick(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnVisualizarClick(Sender: TObject);
   private
     procedure Consultar;
     { Private declarations }
@@ -39,12 +43,38 @@ implementation
 
 {$R *.dfm}
 
+uses uFormCadastroFornecedor;
+
 { TFormFiltroPai1 }
 
 procedure TFormConsultaFornecedor.btnConsultarClick(Sender: TObject);
 begin
   inherited;
   Consultar;
+end;
+
+procedure TFormConsultaFornecedor.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  FormCadastroFornecedor:= TFormCadastroFornecedor.Create(Self);
+  try
+    FormCadastroFornecedor.fdQryCadastro.Insert;
+    FormCadastroFornecedor.ShowModal;
+  finally
+    FreeAndNil(FormCadastroFornecedor);
+  end;
+end;
+
+procedure TFormConsultaFornecedor.btnVisualizarClick(Sender: TObject);
+begin
+  inherited;
+  FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
+  try
+    FormCadastroFornecedor.fdQryCadastro.Locate('ID_FORNECEDOR', fdQryConsultaID_FORNECEDOR.AsInteger,[]);
+    FormCadastroFornecedor.ShowModal;
+  finally
+    FreeAndNil(FormCadastroFornecedor);
+  end;
 end;
 
 procedure TFormConsultaFornecedor.Consultar;

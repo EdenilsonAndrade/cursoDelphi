@@ -24,6 +24,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnFecharClick(Sender: TObject);
   private
+    procedure ValidaQryVazia;
     { Private declarations }
   public
     { Public declarations }
@@ -46,6 +47,15 @@ end;
 procedure TFormFiltroPai.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   action := caFree;
+end;
+
+procedure TFormFiltroPai.ValidaQryVazia;
+begin
+  if fdQryConsulta.IsEmpty then
+  begin
+    Application.MessageBox('Não contém nenhum registro selecionado!','Atenção',MB_OK+MB_APPLMODAL);
+    Abort;
+  end;
 end;
 
 end.

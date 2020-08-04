@@ -15,7 +15,8 @@ uses
   frmConsultaClientes in 'Form\frmConsultaClientes.pas' {FormConsultaClientes},
   uFormCadastroFornecedor in 'Form\uFormCadastroFornecedor.pas' {FormCadastroFornecedor},
   uFormConsultaFornecedores in 'Form\uFormConsultaFornecedores.pas' {FormConsultaFornecedor},
-  uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos};
+  uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos},
+  uFormCadastroProduto in 'Form\uFormCadastroProduto.pas' {FormCadastroProduto};
 
 {$R *.res}
 

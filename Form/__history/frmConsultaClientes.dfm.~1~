@@ -1,5 +1,0 @@
-inherited FormFiltroPai1: TFormFiltroPai1
-  Caption = 'FormFiltroPai1'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

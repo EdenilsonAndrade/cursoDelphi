@@ -108,43 +108,36 @@ inherited FormConsultaClientes: TFormConsultaClientes
       item
         Expanded = False
         FieldName = 'RAZAO_SOCIAL'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'FANTASIA'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CPF_CNPJ'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'TIPO_FJ'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NOME'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'EMAIL'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'SITE'
-        Width = 64
         Visible = True
       end
       item
@@ -155,37 +148,31 @@ inherited FormConsultaClientes: TFormConsultaClientes
       item
         Expanded = False
         FieldName = 'COMPLEMENTO'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NUMERO'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'BAIRRO'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'IE'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'IM'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DT_EXCLUIDO'
-        Width = 64
         Visible = True
       end
       item
