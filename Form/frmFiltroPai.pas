@@ -24,9 +24,9 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnFecharClick(Sender: TObject);
   private
-    procedure ValidaQryVazia;
     { Private declarations }
   public
+    procedure ValidaQryVazia;
     { Public declarations }
   end;
 

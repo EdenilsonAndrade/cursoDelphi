@@ -68,6 +68,7 @@ end;
 procedure TFormConsultaFornecedor.btnVisualizarClick(Sender: TObject);
 begin
   inherited;
+  ValidaQryVazia;
   FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
   try
     FormCadastroFornecedor.fdQryCadastro.Locate('ID_FORNECEDOR', fdQryConsultaID_FORNECEDOR.AsInteger,[]);
@@ -90,7 +91,7 @@ begin
   if edtCNPJ.Text <> '' then
     fdQryConsulta.SQL.Add(' AND UPPER(REPLACE(REPLACE(REPLACE(CNPJ, ''.'',''''),''-'',''''),''/'','''') ) LIKE ' +QuotedStr('%'+UpperCase(edtCNPJ.Text)+'%'));
 
-  fdQryConsulta.Open();
+  fdQryConsulta.Open;
   fdQryConsulta.FetchAll;
 end;
 

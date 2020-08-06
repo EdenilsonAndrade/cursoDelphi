@@ -1,16 +1,16 @@
-unit frmConsultaClientes;
+unit uFormCadastroVenda;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmFiltroPai, FireDAC.Stan.Intf,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFormCadastroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TformConsultaClientes = class(TFormFiltroPai)
+  TFormCadastroPai1 = class(TFormCadastroPai)
   private
     { Private declarations }
   public
@@ -18,7 +18,7 @@ type
   end;
 
 var
-  formConsultaClientes: TformConsultaClientes;
+  FormCadastroPai1: TFormCadastroPai1;
 
 implementation
 

@@ -33,16 +33,19 @@ type
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;
-    DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
-    DBEdit9: TDBEdit;
-    DBEdit10: TDBEdit;
-    DBMoneyEdit1: TDBMoneyEdit;
+    edtID: TDBEdit;
+    edtDescricao: TDBEdit;
+    edtUnidade: TDBEdit;
+    edtFabricante: TDBEdit;
+    edtMarcaModelo: TDBEdit;
+    edtQtde: TDBMoneyEdit;
     DBMoneyEdit2: TDBMoneyEdit;
-    DBMoneyEdit3: TDBMoneyEdit;
-    DBMoneyEdit4: TDBMoneyEdit;
-    DBMoneyEdit5: TDBMoneyEdit;
+    edtVlUnitario: TDBMoneyEdit;
+    edtPesoLIquido: TDBMoneyEdit;
+    edtPesoBruto: TDBMoneyEdit;
+    Label11: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,5 +58,14 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uLookup;
+
+procedure TFormCadastroProduto.FormCreate(Sender: TObject);
+begin
+  inherited;
+  Lookup.fdQryFornecedor.Open();
+  Lookup.fdQryFornecedor.FetchAll;
+end;
 
 end.

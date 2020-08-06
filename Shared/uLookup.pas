@@ -15,6 +15,10 @@ type
     fdTransection: TFDTransaction;
     fdQryCidades: TFDQuery;
     DdsCidades: TDataSource;
+    fdQryFornecedor: TFDQuery;
+    dsFornecedor: TDataSource;
+    fdQryCliente: TFDQuery;
+    dsCliente: TDataSource;
   private
     { Private declarations }
   public

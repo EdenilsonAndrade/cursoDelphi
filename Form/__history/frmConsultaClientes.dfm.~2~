@@ -1,5 +1,0 @@
-inherited formConsultaClientes: TformConsultaClientes
-  Caption = 'Consulta de Clientes'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

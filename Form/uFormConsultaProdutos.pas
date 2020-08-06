@@ -68,6 +68,7 @@ end;
 procedure TFormConsultaProdutos.btnVisualizarClick(Sender: TObject);
 begin
   inherited;
+  ValidaQryVazia;
   FormCadastroProduto := TFormCadastroProduto.Create(Self);
   try
     FormCadastroProduto.fdQryCadastro.Locate('ID_PRODUTO', fdQryConsultaID_PRODUTO.AsInteger,[]);

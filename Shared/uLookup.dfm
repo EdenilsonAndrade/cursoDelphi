@@ -33,4 +33,30 @@ object Lookup: TLookup
     Left = 240
     Top = 136
   end
+  object fdQryFornecedor: TFDQuery
+    Connection = dmDados.fdCon
+    Transaction = fdTransection
+    SQL.Strings = (
+      'SELECT * FROM FORNECEDOR')
+    Left = 178
+    Top = 80
+  end
+  object dsFornecedor: TDataSource
+    DataSet = fdQryFornecedor
+    Left = 178
+    Top = 136
+  end
+  object fdQryCliente: TFDQuery
+    Connection = dmDados.fdCon
+    Transaction = fdTransection
+    SQL.Strings = (
+      'SELECT * FROM CLIENTE')
+    Left = 107
+    Top = 79
+  end
+  object dsCliente: TDataSource
+    DataSet = fdQryCliente
+    Left = 107
+    Top = 135
+  end
 end

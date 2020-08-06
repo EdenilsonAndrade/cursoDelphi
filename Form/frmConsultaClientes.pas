@@ -80,6 +80,7 @@ end;
 procedure TFormConsultaClientes.btnVisualizarClick(Sender: TObject);
 begin
   inherited;
+  ValidaQryVazia;
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
   try
     FormCadastroCliente.fdQryCadastro.Locate('ID_CLIENTE', fdQryConsultaID_CLIENTE.AsInteger,[]);
@@ -108,7 +109,7 @@ begin
   if StrToIntDef(edtCodigo.Text,0) > 0  then
     fdQryConsulta.SQL.Add('AND ID_CLIENTE = '+edtCodigo.Text);
 
-  fdQryConsulta.Open();
+  fdQryConsulta.Open;
   fdQryConsulta.FetchAll;
 end;
 
