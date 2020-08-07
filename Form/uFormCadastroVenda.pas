@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Vcl.Mask;
+  Vcl.DBCtrls, Vcl.Mask, uLookup, AdvEdit, AdvMoneyEdit, DBAdvMoneyEdit;
 
 type
   TFormCadastroVenda = class(TFormCadastroPai)
@@ -23,10 +23,26 @@ type
     Label3: TLabel;
     Label4: TLabel;
     DBEdit1: TDBEdit;
-    DBEdit3: TDBEdit;
-    DBEdit4: TDBEdit;
+    edtDataFaturado: TDBEdit;
+    edtCliente: TDBLookupComboBox;
+    DBCheckBox1: TDBCheckBox;
+    edtData: TDBEdit;
+    Label5: TLabel;
+    fdQryItens: TFDQuery;
+    dsItens: TDataSource;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    fdQryItensID_VENDA_ITEM: TFDAutoIncField;
+    fdQryItensID_PRODUTO: TIntegerField;
+    fdQryItensQTDE: TSingleField;
+    fdQryItensVALOR_UNITARIO: TSingleField;
+    fdQryItensDESCONTO: TSingleField;
+    fdQryItensID_VENDA: TIntegerField;
     DBLookupComboBox1: TDBLookupComboBox;
+    DBAdvMoneyEdit1: TDBAdvMoneyEdit;
     procedure FormCreate(Sender: TObject);
+    procedure fdQryCadastroBeforePost(DataSet: TDataSet);
+    procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -40,7 +56,18 @@ implementation
 
 {$R *.dfm}
 
-uses uLookup;
+procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  fdQryCadastroDT_EMISSAO.AsDateTime := Date;
+end;
+
+procedure TFormCadastroVenda.fdQryCadastroBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if (fdQryCadastroDT_FATURADO.IsNull) and (fdQryCadastroFATURADO.AsAnsiString = 'S') then
+    fdQryCadastroDT_FATURADO.AsDateTime := Date;
+end;
 
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
 begin

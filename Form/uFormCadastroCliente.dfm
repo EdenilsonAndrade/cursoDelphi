@@ -119,6 +119,7 @@ inherited FormCadastroCliente: TFormCadastroCliente
     Height = 21
     DataField = 'ID_CLIENTE'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object edtRazaoSocial: TDBEdit [16]
@@ -156,8 +157,8 @@ inherited FormCadastroCliente: TFormCadastroCliente
     DataField = 'TIPO_FJ'
     DataSource = dsCadastro
     Items.Strings = (
-      'Fisica'
-      'Jur'#237'dica')
+      'F'
+      'J')
     TabOrder = 5
   end
   object DBEdit5: TDBEdit [20]

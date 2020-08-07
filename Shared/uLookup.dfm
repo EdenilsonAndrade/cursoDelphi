@@ -50,7 +50,9 @@ object Lookup: TLookup
     Connection = dmDados.fdCon
     Transaction = fdTransection
     SQL.Strings = (
-      'SELECT * FROM CLIENTE')
+      'SELECT ID_CLIENTE,'
+      '       DECODE(TIPO_FJ, '#39'F'#39', NOME, RAZAO_SOCIAL) NomeCliente'
+      ' FROM CLIENTE')
     Left = 107
     Top = 79
   end

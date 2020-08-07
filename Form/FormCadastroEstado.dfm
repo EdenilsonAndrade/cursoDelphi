@@ -45,6 +45,7 @@ inherited FormCadastroEstados: TFormCadastroEstados
     Height = 21
     DataField = 'ID_ESTADO'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object DBEdit2: TDBEdit [5]

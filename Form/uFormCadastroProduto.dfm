@@ -134,11 +134,29 @@ inherited FormCadastroProduto: TFormCadastroProduto
     DataSource = dsCadastro
     TabOrder = 10
   end
-  object edtQtde: TDBMoneyEdit [17]
+  object edtQtde: TDBAdvMoneyEdit [17]
     Left = 104
     Top = 74
     Width = 89
     Height = 21
+    EditType = etFloat
+    EmptyTextStyle = []
+    LabelFont.Charset = DEFAULT_CHARSET
+    LabelFont.Color = clWindowText
+    LabelFont.Height = -11
+    LabelFont.Name = 'Tahoma'
+    LabelFont.Style = []
+    Lookup.Font.Charset = DEFAULT_CHARSET
+    Lookup.Font.Color = clWindowText
+    Lookup.Font.Height = -11
+    Lookup.Font.Name = 'Arial'
+    Lookup.Font.Style = []
+    Lookup.Separator = ';'
+    Color = clWindow
+    TabOrder = 2
+    Text = '0'
+    Visible = True
+    Version = '1.1.3.0'
     CalculatorLook.ButtonWidth = 24
     CalculatorLook.ButtonHeight = 24
     CalculatorLook.ButtonColor = clSilver
@@ -149,16 +167,32 @@ inherited FormCadastroProduto: TFormCadastroProduto
     CalculatorLook.Font.Height = -11
     CalculatorLook.Font.Name = 'Tahoma'
     CalculatorLook.Font.Style = []
-    TabOrder = 2
-    Version = '1.1.2.0'
     DataField = 'QTDE'
     DataSource = dsCadastro
   end
-  object DBMoneyEdit2: TDBMoneyEdit [18]
+  object DBMoneyEdit2: TDBAdvMoneyEdit [18]
     Left = 212
     Top = 74
     Width = 89
     Height = 21
+    EditType = etFloat
+    EmptyTextStyle = []
+    LabelFont.Charset = DEFAULT_CHARSET
+    LabelFont.Color = clWindowText
+    LabelFont.Height = -11
+    LabelFont.Name = 'Tahoma'
+    LabelFont.Style = []
+    Lookup.Font.Charset = DEFAULT_CHARSET
+    Lookup.Font.Color = clWindowText
+    Lookup.Font.Height = -11
+    Lookup.Font.Name = 'Arial'
+    Lookup.Font.Style = []
+    Lookup.Separator = ';'
+    Color = clWindow
+    TabOrder = 3
+    Text = '0'
+    Visible = True
+    Version = '1.1.3.0'
     CalculatorLook.ButtonWidth = 24
     CalculatorLook.ButtonHeight = 24
     CalculatorLook.ButtonColor = clSilver
@@ -169,16 +203,32 @@ inherited FormCadastroProduto: TFormCadastroProduto
     CalculatorLook.Font.Height = -11
     CalculatorLook.Font.Name = 'Tahoma'
     CalculatorLook.Font.Style = []
-    TabOrder = 3
-    Version = '1.1.2.0'
     DataField = 'CUSTO'
     DataSource = dsCadastro
   end
-  object edtVlUnitario: TDBMoneyEdit [19]
+  object edtVlUnitario: TDBAdvMoneyEdit [19]
     Left = 320
     Top = 74
     Width = 89
     Height = 21
+    EditType = etFloat
+    EmptyTextStyle = []
+    LabelFont.Charset = DEFAULT_CHARSET
+    LabelFont.Color = clWindowText
+    LabelFont.Height = -11
+    LabelFont.Name = 'Tahoma'
+    LabelFont.Style = []
+    Lookup.Font.Charset = DEFAULT_CHARSET
+    Lookup.Font.Color = clWindowText
+    Lookup.Font.Height = -11
+    Lookup.Font.Name = 'Arial'
+    Lookup.Font.Style = []
+    Lookup.Separator = ';'
+    Color = clWindow
+    TabOrder = 4
+    Text = '0'
+    Visible = True
+    Version = '1.1.3.0'
     CalculatorLook.ButtonWidth = 24
     CalculatorLook.ButtonHeight = 24
     CalculatorLook.ButtonColor = clSilver
@@ -189,16 +239,32 @@ inherited FormCadastroProduto: TFormCadastroProduto
     CalculatorLook.Font.Height = -11
     CalculatorLook.Font.Name = 'Tahoma'
     CalculatorLook.Font.Style = []
-    TabOrder = 4
-    Version = '1.1.2.0'
     DataField = 'V_UNITARIO'
     DataSource = dsCadastro
   end
-  object edtPesoLIquido: TDBMoneyEdit [20]
+  object edtPesoLIquido: TDBAdvMoneyEdit [20]
     Left = 72
     Top = 171
     Width = 89
     Height = 21
+    EditType = etFloat
+    EmptyTextStyle = []
+    LabelFont.Charset = DEFAULT_CHARSET
+    LabelFont.Color = clWindowText
+    LabelFont.Height = -11
+    LabelFont.Name = 'Tahoma'
+    LabelFont.Style = []
+    Lookup.Font.Charset = DEFAULT_CHARSET
+    Lookup.Font.Color = clWindowText
+    Lookup.Font.Height = -11
+    Lookup.Font.Name = 'Arial'
+    Lookup.Font.Style = []
+    Lookup.Separator = ';'
+    Color = clWindow
+    TabOrder = 7
+    Text = '0'
+    Visible = True
+    Version = '1.1.3.0'
     CalculatorLook.ButtonWidth = 24
     CalculatorLook.ButtonHeight = 24
     CalculatorLook.ButtonColor = clSilver
@@ -209,16 +275,32 @@ inherited FormCadastroProduto: TFormCadastroProduto
     CalculatorLook.Font.Height = -11
     CalculatorLook.Font.Name = 'Tahoma'
     CalculatorLook.Font.Style = []
-    TabOrder = 7
-    Version = '1.1.2.0'
     DataField = 'PESO_LIQUIDO'
     DataSource = dsCadastro
   end
-  object edtPesoBruto: TDBMoneyEdit [21]
+  object edtPesoBruto: TDBAdvMoneyEdit [21]
     Left = 184
     Top = 171
     Width = 89
     Height = 21
+    EditType = etFloat
+    EmptyTextStyle = []
+    LabelFont.Charset = DEFAULT_CHARSET
+    LabelFont.Color = clWindowText
+    LabelFont.Height = -11
+    LabelFont.Name = 'Tahoma'
+    LabelFont.Style = []
+    Lookup.Font.Charset = DEFAULT_CHARSET
+    Lookup.Font.Color = clWindowText
+    Lookup.Font.Height = -11
+    Lookup.Font.Name = 'Arial'
+    Lookup.Font.Style = []
+    Lookup.Separator = ';'
+    Color = clWindow
+    TabOrder = 8
+    Text = '0'
+    Visible = True
+    Version = '1.1.3.0'
     CalculatorLook.ButtonWidth = 24
     CalculatorLook.ButtonHeight = 24
     CalculatorLook.ButtonColor = clSilver
@@ -229,8 +311,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
     CalculatorLook.Font.Height = -11
     CalculatorLook.Font.Name = 'Tahoma'
     CalculatorLook.Font.Style = []
-    TabOrder = 8
-    Version = '1.1.2.0'
     DataField = 'PESO_BRUTO'
     DataSource = dsCadastro
   end

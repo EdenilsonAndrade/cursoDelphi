@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Mask, Vcl.DBCtrls, MoneyEdit, dbmnyed;
+  Vcl.Mask, Vcl.DBCtrls, MoneyEdit, dbmnyed, AdvEdit, AdvMoneyEdit,
+  DBAdvMoneyEdit;
 
 type
   TFormCadastroProduto = class(TFormCadastroPai)
@@ -38,11 +39,11 @@ type
     edtUnidade: TDBEdit;
     edtFabricante: TDBEdit;
     edtMarcaModelo: TDBEdit;
-    edtQtde: TDBMoneyEdit;
-    DBMoneyEdit2: TDBMoneyEdit;
-    edtVlUnitario: TDBMoneyEdit;
-    edtPesoLIquido: TDBMoneyEdit;
-    edtPesoBruto: TDBMoneyEdit;
+    edtQtde: TDBAdvMoneyEdit;
+    DBMoneyEdit2: TDBAdvMoneyEdit;
+    edtVlUnitario: TDBAdvMoneyEdit;
+    edtPesoLIquido: TDBAdvMoneyEdit;
+    edtPesoBruto: TDBAdvMoneyEdit;
     Label11: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
     procedure FormCreate(Sender: TObject);

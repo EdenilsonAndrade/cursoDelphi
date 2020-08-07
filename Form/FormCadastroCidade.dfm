@@ -32,7 +32,7 @@ inherited FormCadastroCidades: TFormCadastroCidades
   end
   inherited pnCabecalho: TPanel
     Width = 561
-    ExplicitWidth = 610
+    ExplicitWidth = 561
     inherited btnSair: TButton
       Left = 465
       ExplicitLeft = 465
@@ -45,6 +45,7 @@ inherited FormCadastroCidades: TFormCadastroCidades
     Height = 21
     DataField = 'ID_CIDADE'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object DBEdit2: TDBEdit [5]
