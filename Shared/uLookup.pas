@@ -19,6 +19,10 @@ type
     dsFornecedor: TDataSource;
     fdQryCliente: TFDQuery;
     dsCliente: TDataSource;
+    fdQryProdutos: TFDQuery;
+    dsProdutos: TDataSource;
+    fdQryProdutosID_PRODUTO: TIntegerField;
+    fdQryProdutosDESCRICAO: TWideStringField;
   private
     { Private declarations }
   public

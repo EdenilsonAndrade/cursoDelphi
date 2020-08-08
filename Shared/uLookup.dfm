@@ -1,7 +1,7 @@
 object Lookup: TLookup
   OldCreateOrder = False
-  Height = 289
-  Width = 394
+  Height = 404
+  Width = 824
   object fdQryEstados: TFDQuery
     Connection = dmDados.fdCon
     Transaction = fdTransection
@@ -60,5 +60,31 @@ object Lookup: TLookup
     DataSet = fdQryCliente
     Left = 107
     Top = 135
+  end
+  object fdQryProdutos: TFDQuery
+    Connection = dmDados.fdCon
+    Transaction = fdTransection
+    SQL.Strings = (
+      'SELECT ID_PRODUTO,'
+      '       DESCRICAO'
+      '  FROM PRODUTO')
+    Left = 391
+    Top = 81
+    object fdQryProdutosID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryProdutosDESCRICAO: TWideStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+  end
+  object dsProdutos: TDataSource
+    DataSet = fdQryProdutos
+    Left = 391
+    Top = 137
   end
 end

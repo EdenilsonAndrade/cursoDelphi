@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Vcl.Mask, uLookup, AdvEdit, AdvMoneyEdit, DBAdvMoneyEdit;
+  Vcl.DBCtrls, Vcl.Mask, uLookup, AdvEdit, AdvMoneyEdit, DBAdvMoneyEdit,
+  Vcl.Grids, Vcl.DBGrids;
 
 type
   TFormCadastroVenda = class(TFormCadastroPai)
@@ -38,11 +39,27 @@ type
     fdQryItensVALOR_UNITARIO: TSingleField;
     fdQryItensDESCONTO: TSingleField;
     fdQryItensID_VENDA: TIntegerField;
-    DBLookupComboBox1: TDBLookupComboBox;
-    DBAdvMoneyEdit1: TDBAdvMoneyEdit;
+    edtDescItem: TDBLookupComboBox;
+    edtQtde: TAdvMoneyEdit;
+    edtValUnitario: TAdvMoneyEdit;
+    edtDesconto: TAdvMoneyEdit;
+    edtSubTotal: TAdvMoneyEdit;
+    DBGrid1: TDBGrid;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    edtTotal: TAdvMoneyEdit;
+    btnIncluir: TButton;
+    fdQryItensDescricaoProduto: TStringField;
+    fdQryItensSubTotal: TFloatField;
+    fdQryItensTotal: TFloatField;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
+    procedure fdQryItensAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -55,6 +72,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uBiblioteca;
 
 procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
 begin
@@ -69,11 +88,17 @@ begin
     fdQryCadastroDT_FATURADO.AsDateTime := Date;
 end;
 
+procedure TFormCadastroVenda.fdQryItensAfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  fdQryItensID_VENDA.AsInteger := fdQryCadastroID_VENDA.AsInteger;
+end;
+
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
 begin
   inherited;
-  Lookup.fdQryCliente.Open();
-  Lookup.fdQryCliente.FetchAll;
+  AtualizaFDQry(Lookup.fdQryCliente);
+  AtualizaFDQry(Lookup.fdQryProdutos);
 end;
 
 end.

@@ -1,9 +1,0 @@
-inherited FormCadastroVenda: TFormCadastroVenda
-  Caption = 'Venda de produtos'
-  PixelsPerInch = 96
-  TextHeight = 13
-  inherited fdQryCadastro: TFDQuery
-    SQL.Strings = (
-      'SELECT * FROM VENDA')
-  end
-end

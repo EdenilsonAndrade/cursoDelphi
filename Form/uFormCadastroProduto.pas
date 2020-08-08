@@ -60,13 +60,12 @@ implementation
 
 {$R *.dfm}
 
-uses uLookup;
+uses uLookup, uBiblioteca;
 
 procedure TFormCadastroProduto.FormCreate(Sender: TObject);
 begin
   inherited;
-  Lookup.fdQryFornecedor.Open();
-  Lookup.fdQryFornecedor.FetchAll;
+  AtualizaFDQry(Lookup.fdQryFornecedor);
 end;
 
 end.
