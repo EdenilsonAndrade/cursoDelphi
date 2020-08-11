@@ -5,7 +5,7 @@ uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client;
 
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
   function GetValorIni(pLocal, pSessao, pSubsessao: string): string;
-  procedure AtualizaFDQry(const pFDQry : TFDQuery);
+  procedure AtualizaFDQry(const pFDQry : TFDQuery; pSQL : string);
 implementation
 
 procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
@@ -26,10 +26,15 @@ begin
   vArquivo.Free;
 end;
 
-procedure AtualizaFDQry(const pFDQry : TFDQuery);
+procedure AtualizaFDQry(const pFDQry : TFDQuery; pSQL : string);
 begin
   pFDQry.Close;
-  pFDQry.Open();
+  if Trim(pSQL) <> '' then
+  begin
+  pFDQry.SQL.Clear;
+  pFDQry.SQL.Text := pSQL;
+  end;
+  pFDQry.Open;
   pFDQry.FetchAll;
 end;
 end.

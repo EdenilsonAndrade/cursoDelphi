@@ -1,5 +1,6 @@
 inherited FormCadastroVenda: TFormCadastroVenda
   Caption = 'Venda de produtos'
+  ExplicitTop = -91
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel [1]
@@ -104,6 +105,144 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 41
     Align = alBottom
     TabOrder = 2
+    object Label12: TLabel
+      Left = 421
+      Top = 3
+      Width = 53
+      Height = 13
+      Caption = 'Valor Bruto'
+    end
+    object Label13: TLabel
+      Left = 548
+      Top = 3
+      Width = 45
+      Height = 13
+      Caption = 'Desconto'
+    end
+    object Label14: TLabel
+      Left = 675
+      Top = 3
+      Width = 24
+      Height = 13
+      Caption = 'Total'
+    end
+    object edtTotValBruto: TAdvMoneyEdit
+      Left = 420
+      Top = 16
+      Width = 121
+      Height = 21
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 0
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.3.0'
+      CalculatorLook.ButtonWidth = 24
+      CalculatorLook.ButtonHeight = 24
+      CalculatorLook.ButtonColor = clSilver
+      CalculatorLook.Color = clWhite
+      CalculatorLook.Flat = False
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -11
+      CalculatorLook.Font.Name = 'Tahoma'
+      CalculatorLook.Font.Style = []
+    end
+    object edtTotDesconto: TAdvMoneyEdit
+      Left = 547
+      Top = 16
+      Width = 121
+      Height = 21
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 1
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.3.0'
+      CalculatorLook.ButtonWidth = 24
+      CalculatorLook.ButtonHeight = 24
+      CalculatorLook.ButtonColor = clSilver
+      CalculatorLook.Color = clWhite
+      CalculatorLook.Flat = False
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -11
+      CalculatorLook.Font.Name = 'Tahoma'
+      CalculatorLook.Font.Style = []
+    end
+    object edtTotTotal: TAdvMoneyEdit
+      Left = 674
+      Top = 16
+      Width = 121
+      Height = 21
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 2
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.3.0'
+      CalculatorLook.ButtonWidth = 24
+      CalculatorLook.ButtonHeight = 24
+      CalculatorLook.ButtonColor = clSilver
+      CalculatorLook.Color = clWhite
+      CalculatorLook.Flat = False
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -11
+      CalculatorLook.Font.Name = 'Tahoma'
+      CalculatorLook.Font.Style = []
+    end
   end
   object Panel3: TPanel [3]
     Left = 0
@@ -112,8 +251,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 378
     Align = alClient
     TabOrder = 3
-    ExplicitLeft = 112
-    ExplicitTop = 111
     object Label6: TLabel
       Left = 8
       Top = 9
@@ -145,9 +282,9 @@ inherited FormCadastroVenda: TFormCadastroVenda
     object Label10: TLabel
       Left = 540
       Top = 9
-      Width = 40
+      Width = 53
       Height = 13
-      Caption = 'Subtotal'
+      Caption = 'Valor Bruto'
     end
     object Label11: TLabel
       Left = 667
@@ -165,6 +302,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       ListField = 'DESCRICAO'
       ListSource = Lookup.dsProdutos
       TabOrder = 0
+      OnClick = edtDescItemClick
     end
     object edtQtde: TAdvMoneyEdit
       Left = 159
@@ -325,7 +463,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Height = 321
       Align = alBottom
       DataSource = dsItens
-      TabOrder = 5
+      TabOrder = 7
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -334,17 +472,24 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Columns = <
         item
           Expanded = False
-          FieldName = 'ID_PRODUTO'
+          FieldName = 'Codigo'
+          Width = 46
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'QTDE'
+          FieldName = 'Descri'#231#227'o'
+          Width = 118
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'VALOR_UNITARIO'
+          FieldName = 'Quantidade'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Pre'#231'o'
           Visible = True
         end
         item
@@ -354,12 +499,12 @@ inherited FormCadastroVenda: TFormCadastroVenda
         end
         item
           Expanded = False
-          FieldName = 'ID_VENDA'
+          FieldName = 'Valor bruto'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'DescricaoProduto'
+          FieldName = 'Total'
           Visible = True
         end>
     end
@@ -386,7 +531,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
-      TabOrder = 6
+      TabOrder = 5
       Text = '0,00'
       Visible = True
       Version = '1.1.3.0'
@@ -407,12 +552,16 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Width = 75
       Height = 24
       Caption = '&Incluir'
-      TabOrder = 7
+      TabOrder = 6
+      OnClick = btnIncluirClick
     end
   end
   inherited fdQryCadastro: TFDQuery
+    AfterOpen = fdQryCadastroAfterOpen
     AfterInsert = fdQryCadastroAfterInsert
     BeforePost = fdQryCadastroBeforePost
+    AfterScroll = fdQryCadastroAfterScroll
+    OnCalcFields = fdQryCadastroCalcFields
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_ID'
@@ -446,8 +595,11 @@ inherited FormCadastroVenda: TFormCadastroVenda
   end
   object fdQryItens: TFDQuery
     AfterInsert = fdQryItensAfterInsert
+    AfterPost = fdQryItensAfterPost
+    AfterCancel = fdQryItensAfterCancel
+    AfterDelete = fdQryItensAfterDelete
     Connection = dmDados.fdCon
-    Transaction = fdTransaction
+    Transaction = fdtItens
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_ITEM_ID'
@@ -516,5 +668,10 @@ inherited FormCadastroVenda: TFormCadastroVenda
     DataSet = fdQryItens
     Left = 815
     Top = 288
+  end
+  object fdtItens: TFDTransaction
+    Connection = dmDados.fdCon
+    Left = 816
+    Top = 401
   end
 end

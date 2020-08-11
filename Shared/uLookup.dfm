@@ -66,7 +66,8 @@ object Lookup: TLookup
     Transaction = fdTransection
     SQL.Strings = (
       'SELECT ID_PRODUTO,'
-      '       DESCRICAO'
+      '       DESCRICAO,'
+      '       V_UNITARIO'
       '  FROM PRODUTO')
     Left = 391
     Top = 81
@@ -80,6 +81,10 @@ object Lookup: TLookup
       FieldName = 'DESCRICAO'
       Origin = 'DESCRICAO'
       Size = 80
+    end
+    object fdQryProdutosV_UNITARIO: TSingleField
+      FieldName = 'V_UNITARIO'
+      Origin = 'V_UNITARIO'
     end
   end
   object dsProdutos: TDataSource

@@ -1,5 +1,0 @@
-object Lookup: TLookup
-  OldCreateOrder = False
-  Height = 289
-  Width = 394
-end
