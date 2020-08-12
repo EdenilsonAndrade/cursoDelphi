@@ -31,8 +31,8 @@ begin
   pFDQry.Close;
   if Trim(pSQL) <> '' then
   begin
-  pFDQry.SQL.Clear;
-  pFDQry.SQL.Text := pSQL;
+    pFDQry.SQL.Clear;
+    pFDQry.SQL.Text := pSQL;
   end;
   pFDQry.Open;
   pFDQry.FetchAll;

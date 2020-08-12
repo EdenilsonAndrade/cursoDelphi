@@ -63,23 +63,30 @@ type
     edtTotValBruto: TAdvMoneyEdit;
     edtTotDesconto: TAdvMoneyEdit;
     edtTotTotal: TAdvMoneyEdit;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdQryItensAfterInsert(DataSet: TDataSet);
     procedure fdQryCadastroAfterOpen(DataSet: TDataSet);
     procedure fdQryCadastroAfterScroll(DataSet: TDataSet);
-    procedure fdQryCadastroCalcFields(DataSet: TDataSet);
     procedure fdQryItensAfterPost(DataSet: TDataSet);
     procedure fdQryItensAfterDelete(DataSet: TDataSet);
     procedure fdQryItensAfterCancel(DataSet: TDataSet);
     procedure btnIncluirClick(Sender: TObject);
     procedure edtDescItemClick(Sender: TObject);
+    procedure edtQtdeChange(Sender: TObject);
+    procedure edtValUnitarioChange(Sender: TObject);
+    procedure edtDescontoChange(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure fdQryItensCalcFields(DataSet: TDataSet);
   private
     procedure setItens(pIDVenda:integer);
     procedure GravarItem;
     procedure SetDadosProduto(pIDProduto : integer);
     procedure CalculaTotais;
+    procedure CalculaTotalizadores;
+    procedure LimparCampos;
     { Private declarations }
   public
     { Public declarations }
@@ -98,6 +105,13 @@ procedure TFormCadastroVenda.btnIncluirClick(Sender: TObject);
 begin
   inherited;
   GravarItem;
+  LimparCampos;
+end;
+
+procedure TFormCadastroVenda.Button1Click(Sender: TObject);
+begin
+  inherited;
+  fdQryItens.Delete;
 end;
 
 procedure TFormCadastroVenda.CalculaTotais;
@@ -110,22 +124,46 @@ begin
   vQryTotal.Connection  := dmDados.fdCon;
   try
     vSQL := 'SELECT SUM(QTDE * VALOR_UNITARIO) VALOR_BRUTO, SUM(COALESCE(DESCONTO,0)) DESCONTO, ' +#13 +
-            'SUM((QTDE * VALOR_UNITARIO) - COALESCE(DESCONTO,0) TOTAL FROM VENDA_ITEM'+#13+
-            'WHERE ID_VENDA = '+fdQryCadastroID_VENDA.AsString;
+            'SUM((QTDE * VALOR_UNITARIO) - COALESCE(DESCONTO,0)) TOTAL FROM VENDA_ITEM'+#13+
+            'WHERE ID_VENDA = '+IntToStr(fdQryCadastroID_VENDA.AsInteger);
     AtualizaFDQry(vQryTotal, vSQL);
     edtTotValBruto.Value := vQryTotal.FieldByName('VALOR_BRUTO').AsFloat;
     edtTotDesconto.Value := vQryTotal.FieldByName('DESCONTO').AsFloat;
-    edtTotal.Value       := vQryTotal.FieldByName('TOTAL').AsFloat;
+    edtTotTotal.Value       := vQryTotal.FieldByName('TOTAL').AsFloat;
   finally
     vQryTotal.Close;
     FreeAndNil(vQryTotal);
   end;
 end;
 
+procedure TFormCadastroVenda.CalculaTotalizadores;
+begin
+  edtSubTotal.Value := edtQtde.Value * edtValUnitario.Value;
+  edtTotal.Value    := (edtQtde.Value * edtValUnitario.Value) - edtDesconto.Value;
+end;
+
 procedure TFormCadastroVenda.edtDescItemClick(Sender: TObject);
 begin
   inherited;
   SetDadosProduto(edtDescItem.KeyValue);
+end;
+
+procedure TFormCadastroVenda.edtDescontoChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotalizadores;
+end;
+
+procedure TFormCadastroVenda.edtQtdeChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotalizadores;
+end;
+
+procedure TFormCadastroVenda.edtValUnitarioChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotalizadores;
 end;
 
 procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
@@ -153,13 +191,6 @@ begin
     fdQryCadastroDT_FATURADO.AsDateTime := Date;
 end;
 
-procedure TFormCadastroVenda.fdQryCadastroCalcFields(DataSet: TDataSet);
-begin
-  inherited;
-  fdQryItensSubTotal.AsFloat := (fdQryItensQTDE.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat);
-  fdQryItensTotal.AsFloat    := (fdQryItensQTDE.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat) - fdQryItensDESCONTO.AsFloat;
-end;
-
 procedure TFormCadastroVenda.fdQryItensAfterCancel(DataSet: TDataSet);
 begin
   inherited;
@@ -168,6 +199,7 @@ end;
 
 procedure TFormCadastroVenda.fdQryItensAfterDelete(DataSet: TDataSet);
 begin
+  fdtItens.StartTransaction;
   inherited;
   fdtItens.CommitRetaining;
   CalculaTotais;
@@ -181,9 +213,19 @@ end;
 
 procedure TFormCadastroVenda.fdQryItensAfterPost(DataSet: TDataSet);
 begin
+  fdtItens.StartTransaction;
   inherited;
   fdtItens.CommitRetaining;
   CalculaTotais;
+end;
+
+procedure TFormCadastroVenda.fdQryItensCalcFields(DataSet: TDataSet);
+begin
+  inherited;
+  fdQryItensSubTotal.AsFloat := (fdQryItensQTDE.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat);
+  fdQryItensTotal.AsFloat    := (fdQryItensQTDE.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat) - fdQryItensDESCONTO.AsFloat;
+  FormatFloat('#,##0.00',fdQryItensTotal.AsFloat);
+  FormatFloat('#,##0.00',fdQryItensSubTotal.AsFloat);
 end;
 
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
@@ -201,6 +243,17 @@ begin
   fdQryItensVALOR_UNITARIO.AsFloat := edtValUnitario.Value;
   fdQryItensDESCONTO.AsFloat       := edtDesconto.Value;
   fdQryItens.Post;
+end;
+
+procedure TFormCadastroVenda.LimparCampos;
+begin
+  edtDescItem.KeyValue := 0;
+  edtQtde.Value        := 0;
+  edtValUnitario.Value := 0;
+  edtDesconto.Value    := 0;
+  edtTotal.Value       := 0;
+  edtSubTotal.Value    := 0;
+  edtDescItem.SetFocus;
 end;
 
 procedure TFormCadastroVenda.SetDadosProduto(pIDProduto: integer);

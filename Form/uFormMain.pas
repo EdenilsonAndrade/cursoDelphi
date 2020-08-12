@@ -36,6 +36,13 @@ type
     AdvToolBarSeparator6: TAdvToolBarSeparator;
     btnCadastroProduto: TAdvGlowButton;
     AdvToolBarSeparator7: TAdvToolBarSeparator;
+    AdvPage4: TAdvPage;
+    AdvToolBar4: TAdvToolBar;
+    AdvToolBarSeparator8: TAdvToolBarSeparator;
+    AdvToolBarSeparator9: TAdvToolBarSeparator;
+    AdvGlowButton4: TAdvGlowButton;
+    AdvGlowButton5: TAdvGlowButton;
+    AdvGlowButton6: TAdvGlowButton;
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
@@ -44,6 +51,7 @@ type
     procedure btnConsultaClienteClick(Sender: TObject);
     procedure btnConsultarProdutosClick(Sender: TObject);
     procedure btnCadastroProdutoClick(Sender: TObject);
+    procedure AdvGlowButton6Click(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -61,7 +69,7 @@ implementation
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
   frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
-  uFormConsultaProdutos, uFormCadastroProduto;
+  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda;
 
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
@@ -91,6 +99,16 @@ begin
     FormCadastroCliente.ShowModal;
   finally
     FreeAndNil(FormCadastroCliente);
+  end;
+end;
+
+procedure TFormMain.AdvGlowButton6Click(Sender: TObject);
+begin
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
   end;
 end;
 

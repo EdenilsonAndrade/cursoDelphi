@@ -1,6 +1,5 @@
 inherited FormCadastroVenda: TFormCadastroVenda
   Caption = 'Venda de produtos'
-  ExplicitTop = -91
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel [1]
@@ -93,7 +92,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Top = 27
       Width = 121
       Height = 21
-      DataField = 'DT_FATURADO'
+      DataField = 'DT_EMISSAO'
       DataSource = dsCadastro
       TabOrder = 2
     end
@@ -330,6 +329,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 1
       Text = '0,00'
       Visible = True
+      OnChange = edtQtdeChange
       Version = '1.1.3.0'
       CalculatorLook.ButtonWidth = 24
       CalculatorLook.ButtonHeight = 24
@@ -368,6 +368,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 2
       Text = '0,00'
       Visible = True
+      OnChange = edtValUnitarioChange
       Version = '1.1.3.0'
       CalculatorLook.ButtonWidth = 24
       CalculatorLook.ButtonHeight = 24
@@ -406,6 +407,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 3
       Text = '0,00'
       Visible = True
+      OnChange = edtDescontoChange
       Version = '1.1.3.0'
       CalculatorLook.ButtonWidth = 24
       CalculatorLook.ButtonHeight = 24
@@ -441,6 +443,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 4
       Text = '0,00'
       Visible = True
@@ -472,34 +475,37 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Columns = <
         item
           Expanded = False
-          FieldName = 'Codigo'
-          Width = 46
+          FieldName = 'ID_PRODUTO'
+          Title.Caption = 'C'#243'digo'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Descri'#231#227'o'
-          Width = 118
+          FieldName = 'DescricaoProduto'
+          Title.Caption = 'Descricao_Produto'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Quantidade'
+          FieldName = 'QTDE'
+          Title.Caption = 'Quantidade'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Pre'#231'o'
+          FieldName = 'VALOR_UNITARIO'
+          Title.Caption = 'Valor_Unit'#225'rio'
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'DESCONTO'
+          Title.Caption = 'Desconto'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Valor bruto'
+          FieldName = 'SubTotal'
           Visible = True
         end
         item
@@ -531,6 +537,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 5
       Text = '0,00'
       Visible = True
@@ -555,13 +562,21 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 6
       OnClick = btnIncluirClick
     end
+    object Button1: TButton
+      Left = 875
+      Top = 25
+      Width = 75
+      Height = 24
+      Caption = '&Excluir'
+      TabOrder = 8
+      OnClick = Button1Click
+    end
   end
   inherited fdQryCadastro: TFDQuery
     AfterOpen = fdQryCadastroAfterOpen
     AfterInsert = fdQryCadastroAfterInsert
     BeforePost = fdQryCadastroBeforePost
     AfterScroll = fdQryCadastroAfterScroll
-    OnCalcFields = fdQryCadastroCalcFields
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_ID'
@@ -598,6 +613,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
     AfterPost = fdQryItensAfterPost
     AfterCancel = fdQryItensAfterCancel
     AfterDelete = fdQryItensAfterDelete
+    OnCalcFields = fdQryItensCalcFields
     Connection = dmDados.fdCon
     Transaction = fdtItens
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
