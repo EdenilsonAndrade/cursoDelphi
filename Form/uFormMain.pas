@@ -20,9 +20,9 @@ type
     AdvPage2: TAdvPage;
     AdvPage3: TAdvPage;
     AdvToolBar2: TAdvToolBar;
-    AdvGlowButton2: TAdvGlowButton;
-    AdvGlowButton1: TAdvGlowButton;
-    AdvGlowButton3: TAdvGlowButton;
+    btnCadastroEstado: TAdvGlowButton;
+    btnCadastroCidades: TAdvGlowButton;
+    btnCadastroCliente: TAdvGlowButton;
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
     AdvToolBar3: TAdvToolBar;
@@ -42,16 +42,16 @@ type
     AdvToolBarSeparator9: TAdvToolBarSeparator;
     AdvGlowButton4: TAdvGlowButton;
     AdvGlowButton5: TAdvGlowButton;
-    AdvGlowButton6: TAdvGlowButton;
-    procedure AdvGlowButton3Click(Sender: TObject);
-    procedure AdvGlowButton1Click(Sender: TObject);
-    procedure AdvGlowButton2Click(Sender: TObject);
+    btnCadastroVenda: TAdvGlowButton;
+    procedure btnCadastroClienteClick(Sender: TObject);
+    procedure btnCadastroCidadesClick(Sender: TObject);
+    procedure btnCadastroEstadoClick(Sender: TObject);
     procedure btnConsultaFornecedorClick(Sender: TObject);
     procedure btnCadastroFornecedorClick(Sender: TObject);
     procedure btnConsultaClienteClick(Sender: TObject);
     procedure btnConsultarProdutosClick(Sender: TObject);
     procedure btnCadastroProdutoClick(Sender: TObject);
-    procedure AdvGlowButton6Click(Sender: TObject);
+    procedure btnCadastroVendaClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -69,97 +69,52 @@ implementation
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
   frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
-  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda;
+  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca;
 
 
-procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
+procedure TFormMain.btnCadastroCidadesClick(Sender: TObject);
 begin
-  FormCadastroCidades := TFormCadastroCidades.Create(Self);
-  try
-    FormCadastroCidades.ShowModal;
-  finally
-    FreeAndNil(FormCadastroCidades);
-  end;
+  ShowModalForm(TFormCadastroCidades, FormCadastroCidades);
 end;
 
-procedure TFormMain.AdvGlowButton2Click(Sender: TObject);
+procedure TFormMain.btnCadastroEstadoClick(Sender: TObject);
 begin
-  FormCadastroEstados := TFormCadastroEstados.Create(Self);
-  try
-    FormCadastroEstados.ShowModal;
-  finally
-    FreeAndNil(FormCadastroEstados);
-  end;
+  ShowModalForm(TFormCadastroEstados, FormCadastroEstados);
 end;
 
-procedure TFormMain.AdvGlowButton3Click(Sender: TObject);
+procedure TFormMain.btnCadastroClienteClick(Sender: TObject);
 begin
-  FormCadastroCliente := TFormCadastroCliente.Create(Self);
-  try
-    FormCadastroCliente.ShowModal;
-  finally
-    FreeAndNil(FormCadastroCliente);
-  end;
+  ShowModalForm(TFormCadastroCliente, FormCadastroCliente);
 end;
 
-procedure TFormMain.AdvGlowButton6Click(Sender: TObject);
+procedure TFormMain.btnCadastroVendaClick(Sender: TObject);
 begin
-  FormCadastroVenda := TFormCadastroVenda.Create(Self);
-  try
-    FormCadastroVenda.ShowModal;
-  finally
-    FreeAndNil(FormCadastroVenda);
-  end;
+  ShowModalForm(TFormCadastroVenda, FormCadastroVenda);
 end;
 
 procedure TFormMain.btnConsultaClienteClick(Sender: TObject);
 begin
-  try
-    FormConsultaClientes := TFormConsultaClientes.Create(Self);
-    FormConsultaClientes.Show
-  finally
-
-  end;
+  ShowForm(TFormConsultaClientes, FormConsultaClientes);
 end;
 
 procedure TFormMain.btnConsultaFornecedorClick(Sender: TObject);
 begin
-  try
-    FormConsultaFornecedor := TFormConsultaFornecedor.Create(Self);
-    FormConsultaFornecedor.Show
-  finally
-
-  end;
+  ShowForm(TFormConsultaFornecedor, FormConsultaFornecedor);
 end;
 
 procedure TFormMain.btnConsultarProdutosClick(Sender: TObject);
 begin
-  try
-    FormConsultaProdutos := TFormConsultaProdutos.Create(Self);
-    FormConsultaProdutos.Show
-  finally
-
-  end;
+  ShowForm(TFormConsultaProdutos, FormConsultaProdutos);
 end;
 
 procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
 begin
-  FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
-  try
-    FormCadastroFornecedor.ShowModal;
-  finally
-    FreeAndNil(FormCadastroFornecedor);
-  end;
+  ShowModalForm(TFormCadastroFornecedor, FormCadastroFornecedor);
 end;
 
 procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
 begin
-    FormCadastroProduto := TFormCadastroProduto.Create(Self);
-  try
-    FormCadastroProduto.ShowModal;
-  finally
-    FreeAndNil(FormCadastroProduto);
-  end;
+  ShowModalForm(TFormCadastroProduto, FormCadastroProduto);
 end;
 
 end.

@@ -1,11 +1,14 @@
 unit uBiblioteca;
 
 interface
-uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client;
+uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes;
 
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
   function GetValorIni(pLocal, pSessao, pSubsessao: string): string;
   procedure AtualizaFDQry(const pFDQry : TFDQuery; pSQL : string);
+  procedure ShowModalForm(pClass: TComponentClass; pForm: TForm);
+  procedure ShowForm(pClass: TComponentClass; pForm: TForm);
+
 implementation
 
 procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
@@ -36,5 +39,25 @@ begin
   end;
   pFDQry.Open;
   pFDQry.FetchAll;
+end;
+
+procedure ShowModalForm(pClass: TComponentClass; pForm: TForm);
+begin
+  try
+    Application.CreateForm(pClass, pForm);
+    pForm.ShowModal;
+  finally
+    FreeAndNil(pForm);
+  end;
+end;
+
+procedure ShowForm(pClass: TComponentClass; pForm: TForm);
+begin
+  try
+    Application.CreateForm(pClass, pForm);
+    pForm.Show;
+  finally
+
+  end;
 end;
 end.

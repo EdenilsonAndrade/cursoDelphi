@@ -690,4 +690,40 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Left = 816
     Top = 401
   end
+  object frxReport1: TfrxReport
+    Version = '6.7.9'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 44056.871052314820000000
+    ReportOptions.LastChange = 44056.871052314820000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 104
+    Top = 249
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxDadosVenda: TfrxDBDataset
+    UserName = 'frxDadosVenda'
+    CloseDataSource = False
+    DataSet = fdQryCadastro
+    BCDToCurrency = False
+    Left = 176
+    Top = 249
+  end
+  object frxItensVenda: TfrxDBDataset
+    UserName = 'frxItensVenda'
+    CloseDataSource = False
+    BCDToCurrency = False
+    Left = 176
+    Top = 297
+  end
 end

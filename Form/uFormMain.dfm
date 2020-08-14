@@ -31,7 +31,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 149
-    ActivePage = AdvPage4
+    ActivePage = AdvPage2
     Caption.Caption = 'Sistema de gest'#227'o'
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
     Hints.MDICloseBtnHint = 'Close'
@@ -167,7 +167,7 @@ object FormMain: TFormMain
           Height = 71
           LineColor = clBtnShadow
         end
-        object AdvGlowButton2: TAdvGlowButton
+        object btnCadastroEstado: TAdvGlowButton
           Left = 196
           Top = 2
           Width = 87
@@ -181,7 +181,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 0
-          OnClick = AdvGlowButton2Click
+          OnClick = btnCadastroEstadoClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -212,7 +212,7 @@ object FormMain: TFormMain
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
-        object AdvGlowButton1: TAdvGlowButton
+        object btnCadastroCidades: TAdvGlowButton
           Left = 99
           Top = 2
           Width = 87
@@ -226,7 +226,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 1
-          OnClick = AdvGlowButton1Click
+          OnClick = btnCadastroCidadesClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -257,7 +257,7 @@ object FormMain: TFormMain
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
-        object AdvGlowButton3: TAdvGlowButton
+        object btnCadastroCliente: TAdvGlowButton
           Left = 2
           Top = 2
           Width = 87
@@ -271,7 +271,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 2
-          OnClick = AdvGlowButton3Click
+          OnClick = btnCadastroClienteClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -638,7 +638,6 @@ object FormMain: TFormMain
         Top = 3
         Width = 286
         Height = 86
-        UIStyle = tsOffice2019White
         AllowFloating = True
         AutoSize = False
         Caption = 'Principais bot'#245'es'
@@ -685,7 +684,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 0
-          OnClick = AdvGlowButton2Click
+          OnClick = btnCadastroEstadoClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -730,7 +729,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 1
-          OnClick = AdvGlowButton1Click
+          OnClick = btnCadastroCidadesClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -761,7 +760,7 @@ object FormMain: TFormMain
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
-        object AdvGlowButton6: TAdvGlowButton
+        object btnCadastroVenda: TAdvGlowButton
           Left = 2
           Top = 2
           Width = 87
@@ -775,7 +774,7 @@ object FormMain: TFormMain
           NotesFont.Style = []
           Rounded = True
           TabOrder = 2
-          OnClick = AdvGlowButton6Click
+          OnClick = btnCadastroVendaClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

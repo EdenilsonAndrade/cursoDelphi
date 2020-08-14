@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.DBCtrls, Vcl.Mask, uLookup, AdvEdit, AdvMoneyEdit, DBAdvMoneyEdit,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
 
 type
   TFormCadastroVenda = class(TFormCadastroPai)
@@ -64,6 +64,9 @@ type
     edtTotDesconto: TAdvMoneyEdit;
     edtTotTotal: TAdvMoneyEdit;
     Button1: TButton;
+    frxReport1: TfrxReport;
+    frxDadosVenda: TfrxDBDataset;
+    frxItensVenda: TfrxDBDataset;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
