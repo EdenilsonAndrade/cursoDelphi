@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.DBCtrls, Vcl.Mask, uLookup, AdvEdit, AdvMoneyEdit, DBAdvMoneyEdit,
-  Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
+  Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet, Vcl.Buttons;
 
 type
   TFormCadastroVenda = class(TFormCadastroPai)
@@ -64,9 +64,10 @@ type
     edtTotDesconto: TAdvMoneyEdit;
     edtTotTotal: TAdvMoneyEdit;
     Button1: TButton;
-    frxReport1: TfrxReport;
+    frVenda: TfrxReport;
     frxDadosVenda: TfrxDBDataset;
     frxItensVenda: TfrxDBDataset;
+    btnImprimir: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
@@ -83,6 +84,7 @@ type
     procedure edtDescontoChange(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure fdQryItensCalcFields(DataSet: TDataSet);
+    procedure btnImprimirClick(Sender: TObject);
   private
     procedure setItens(pIDVenda:integer);
     procedure GravarItem;
@@ -103,6 +105,13 @@ implementation
 {$R *.dfm}
 
 uses uBiblioteca, uDmDados;
+
+procedure TFormCadastroVenda.btnImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frVenda.Variables.Variables['Cliente'] := QuotedStr(edtCliente.Text);
+  CarregaRelatorio(frVenda);
+end;
 
 procedure TFormCadastroVenda.btnIncluirClick(Sender: TObject);
 begin

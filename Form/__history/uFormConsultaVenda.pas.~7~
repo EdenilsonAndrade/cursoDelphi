@@ -1,0 +1,76 @@
+unit uFormConsultaVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmFiltroPai, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls;
+
+type
+  TFormConsultaVenda = class(TFormFiltroPai)
+    dtIni: TDateTimePicker;
+    dtFim: TDateTimePicker;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtCodigoVenda: TEdit;
+    Label4: TLabel;
+    cbFaturado: TCheckBox;
+    procedure btnConsultarClick(Sender: TObject);
+  private
+    procedure Consultar;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormConsultaVenda: TFormConsultaVenda;
+
+implementation
+
+{$R *.dfm}
+
+{ TFormConsultaVenda }
+
+procedure TFormConsultaVenda.btnConsultarClick(Sender: TObject);
+begin
+  inherited;
+  Consultar;
+end;
+
+procedure TFormConsultaVenda.Consultar;
+begin
+  fdQryConsulta.Close;
+  fdQryConsulta.SQL.Clear;
+  fdQryConsulta.SQL.Add('SELECT V.ID_VENDA, ');
+  fdQryConsulta.SQL.Add('       V.ID_CLIENTE, ');
+  fdQryConsulta.SQL.Add('       DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL) CLIENTE, ');
+  fdQryConsulta.SQL.Add('       V.DT_EMISSAO, ');
+  fdQryConsulta.SQL.Add('       COALESCE(V.FATURADO, ''N'') FATURADO ');
+  fdQryConsulta.SQL.Add('  FROM venda V ');
+  fdQryConsulta.SQL.Add('  INNER JOIN CLIENTE C ON (C.ID_CLIENTE = V.ID_CLIENTE) ');
+  fdQryConsulta.SQL.Add('  WHERE 1 = 1 ');
+
+  if edtConsulta.Text <>'' then
+    fdQryConsulta.SQL.Add(' AND UPPER(DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL)) LIKE '+QuotedStr('%'+UpperCase(edtConsulta.Text)+'%'));
+
+  if dtIni.Date > 0 then
+    fdQryConsulta.SQL.Add(' AND V.DT_EMISSAO >= '+QuotedStr(FormatDateTime('YYYY-MM-DD', dtIni.Date)));
+
+  if dtFim.Date > 0 then
+    fdQryConsulta.SQL.Add(' AND V.DT_EMISSAO <= '+QuotedStr(FormatDateTime('YYY-MM-DD',dtFim.Date)));
+
+  if edtCodigoVenda.Text <> '' then
+    fdQryConsulta.SQL.Add(' AND V.ID_VENDA = '+edtCodigoVenda.Text);
+
+  fdQryConsulta.Open;
+  fdQryConsulta.FetchAll;
+
+
+end;
+
+end.

@@ -17,7 +17,8 @@ uses
   uFormConsultaFornecedores in 'Form\uFormConsultaFornecedores.pas' {FormConsultaFornecedor},
   uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos},
   uFormCadastroProduto in 'Form\uFormCadastroProduto.pas' {FormCadastroProduto},
-  uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroVenda};
+  uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroVenda},
+  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda};
 
 {$R *.res}
 

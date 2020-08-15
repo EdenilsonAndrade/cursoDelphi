@@ -1,0 +1,121 @@
+unit uFormMain;
+
+interface
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
+  Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
+  AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
+  AdvOfficeStatusBarStylers, AdvGlowButton;
+
+type
+  TFormMain = class(TAdvToolBarForm)
+    AdvToolBarPager1: TAdvToolBarPager;
+    AdvPage1: TAdvPage;
+    AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler;
+    AdvToolBar1: TAdvToolBar;
+    AdvOfficeStatusBar1: TAdvOfficeStatusBar;
+    AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
+    AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
+    AdvShapeButton1: TAdvShapeButton;
+    AdvPage2: TAdvPage;
+    AdvPage3: TAdvPage;
+    AdvToolBar2: TAdvToolBar;
+    btnCadastroEstado: TAdvGlowButton;
+    btnCadastroCidades: TAdvGlowButton;
+    btnCadastroCliente: TAdvGlowButton;
+    AdvToolBarSeparator1: TAdvToolBarSeparator;
+    AdvToolBarSeparator2: TAdvToolBarSeparator;
+    AdvToolBar3: TAdvToolBar;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    AdvToolBarSeparator4: TAdvToolBarSeparator;
+    btnConsultaFornecedor: TAdvGlowButton;
+    btnCadastroFornecedor: TAdvGlowButton;
+    AdvToolBarSeparator5: TAdvToolBarSeparator;
+    btnConsultaCliente: TAdvGlowButton;
+    btnConsultarProdutos: TAdvGlowButton;
+    AdvToolBarSeparator6: TAdvToolBarSeparator;
+    btnCadastroProduto: TAdvGlowButton;
+    AdvToolBarSeparator7: TAdvToolBarSeparator;
+    AdvPage4: TAdvPage;
+    AdvToolBar4: TAdvToolBar;
+    AdvToolBarSeparator8: TAdvToolBarSeparator;
+    AdvToolBarSeparator9: TAdvToolBarSeparator;
+    AdvGlowButton4: TAdvGlowButton;
+    AdvGlowButton5: TAdvGlowButton;
+    btnCadastroVenda: TAdvGlowButton;
+    btnConsultaVendas: TAdvGlowButton;
+    procedure btnCadastroClienteClick(Sender: TObject);
+    procedure btnCadastroCidadesClick(Sender: TObject);
+    procedure btnCadastroEstadoClick(Sender: TObject);
+    procedure btnConsultaFornecedorClick(Sender: TObject);
+    procedure btnCadastroFornecedorClick(Sender: TObject);
+    procedure btnConsultaClienteClick(Sender: TObject);
+    procedure btnConsultarProdutosClick(Sender: TObject);
+    procedure btnCadastroProdutoClick(Sender: TObject);
+    procedure btnCadastroVendaClick(Sender: TObject);
+  private
+    { Private declarations }
+  protected
+    { Protected declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormMain: TFormMain;
+
+implementation
+
+{$R *.dfm}
+
+uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
+  frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
+  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca;
+
+
+procedure TFormMain.btnCadastroCidadesClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroCidades, FormCadastroCidades);
+end;
+
+procedure TFormMain.btnCadastroEstadoClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroEstados, FormCadastroEstados);
+end;
+
+procedure TFormMain.btnCadastroClienteClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroCliente, FormCadastroCliente);
+end;
+
+procedure TFormMain.btnCadastroVendaClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroVenda, FormCadastroVenda);
+end;
+
+procedure TFormMain.btnConsultaClienteClick(Sender: TObject);
+begin
+  ShowForm(TFormConsultaClientes, FormConsultaClientes);
+end;
+
+procedure TFormMain.btnConsultaFornecedorClick(Sender: TObject);
+begin
+  ShowForm(TFormConsultaFornecedor, FormConsultaFornecedor);
+end;
+
+procedure TFormMain.btnConsultarProdutosClick(Sender: TObject);
+begin
+  ShowForm(TFormConsultaProdutos, FormConsultaProdutos);
+end;
+
+procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroFornecedor, FormCadastroFornecedor);
+end;
+
+procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroProduto, FormCadastroProduto);
+end;
+
+end.

@@ -43,6 +43,7 @@ type
     AdvGlowButton4: TAdvGlowButton;
     AdvGlowButton5: TAdvGlowButton;
     btnCadastroVenda: TAdvGlowButton;
+    btnConsultaVendas: TAdvGlowButton;
     procedure btnCadastroClienteClick(Sender: TObject);
     procedure btnCadastroCidadesClick(Sender: TObject);
     procedure btnCadastroEstadoClick(Sender: TObject);
@@ -52,6 +53,7 @@ type
     procedure btnConsultarProdutosClick(Sender: TObject);
     procedure btnCadastroProdutoClick(Sender: TObject);
     procedure btnCadastroVendaClick(Sender: TObject);
+    procedure btnConsultaVendasClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -69,7 +71,8 @@ implementation
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
   frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
-  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca;
+  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca,
+  uFormConsultaVenda;
 
 
 procedure TFormMain.btnCadastroCidadesClick(Sender: TObject);
@@ -105,6 +108,11 @@ end;
 procedure TFormMain.btnConsultarProdutosClick(Sender: TObject);
 begin
   ShowForm(TFormConsultaProdutos, FormConsultaProdutos);
+end;
+
+procedure TFormMain.btnConsultaVendasClick(Sender: TObject);
+begin
+  ShowForm(TFormConsultaVenda, FormConsultaVenda);
 end;
 
 procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);

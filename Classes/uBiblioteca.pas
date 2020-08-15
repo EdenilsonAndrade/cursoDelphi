@@ -1,13 +1,15 @@
 unit uBiblioteca;
 
 interface
-uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes;
+uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes,
+  frxClass;
 
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
   function GetValorIni(pLocal, pSessao, pSubsessao: string): string;
   procedure AtualizaFDQry(const pFDQry : TFDQuery; pSQL : string);
   procedure ShowModalForm(pClass: TComponentClass; pForm: TForm);
   procedure ShowForm(pClass: TComponentClass; pForm: TForm);
+  procedure CarregaRelatorio(const pReport: TfrxReport);
 
 implementation
 
@@ -59,5 +61,11 @@ begin
   finally
 
   end;
+end;
+
+procedure CarregaRelatorio(const pReport: TfrxReport);
+begin
+  pReport.PrepareReport;
+  pReport.ShowPreparedReport;
 end;
 end.

@@ -1,0 +1,10 @@
+inherited FormConsultaVenda: TFormConsultaVenda
+  Caption = 'Consulta Vendas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited btnConsultar: TButton
+      Caption = 'Consultar'
+    end
+  end
+end
