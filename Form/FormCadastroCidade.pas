@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.ExtCtrls;
+  FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.Buttons;
 
 type
   TFormCadastroCidades = class(TFormCadastroPai)

@@ -1,9 +1,9 @@
 inherited FormCadastroCidades: TFormCadastroCidades
   Caption = 'Cadastro de Cidades'
-  ClientHeight = 200
-  ClientWidth = 561
-  ExplicitWidth = 567
-  ExplicitHeight = 229
+  ClientHeight = 240
+  ClientWidth = 637
+  ExplicitWidth = 643
+  ExplicitHeight = 269
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -31,11 +31,11 @@ inherited FormCadastroCidades: TFormCadastroCidades
     FocusControl = DBEdit3
   end
   inherited pnCabecalho: TPanel
-    Width = 561
+    Width = 637
     ExplicitWidth = 561
     inherited btnSair: TButton
-      Left = 465
-      ExplicitLeft = 465
+      Left = 548
+      ExplicitLeft = 548
     end
   end
   object DBEdit1: TDBEdit [4]
@@ -73,6 +73,8 @@ inherited FormCadastroCidades: TFormCadastroCidades
     UpdateOptions.AutoIncFields = 'ID_CIDADE'
     SQL.Strings = (
       'SELECT * FROM CIDADE')
+    Left = 280
+    Top = 128
     object fdQryCadastroID_CIDADE: TFDAutoIncField
       FieldName = 'ID_CIDADE'
       Origin = 'ID_CIDADE'
@@ -88,5 +90,13 @@ inherited FormCadastroCidades: TFormCadastroCidades
       FieldName = 'COD_IBGE'
       Origin = 'COD_IBGE'
     end
+  end
+  inherited fdUpCadastro: TFDUpdateSQL
+    Left = 280
+    Top = 184
+  end
+  inherited dsCadastro: TDataSource
+    Left = 280
+    Top = 72
   end
 end

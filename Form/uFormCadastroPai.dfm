@@ -23,6 +23,42 @@ object FormCadastroPai: TFormCadastroPai
     Height = 41
     Align = alTop
     TabOrder = 0
+    object SpeedButton1: TSpeedButton
+      Left = 376
+      Top = 10
+      Width = 23
+      Height = 22
+      Caption = '<<'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 400
+      Top = 10
+      Width = 23
+      Height = 22
+      Caption = '<'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 424
+      Top = 10
+      Width = 23
+      Height = 22
+      Caption = '>'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 448
+      Top = 10
+      Width = 23
+      Height = 22
+      Caption = '>>'
+      ParentShowHint = False
+      ShowHint = True
+    end
     object btnNovo: TButton
       Left = 0
       Top = 0
@@ -93,5 +129,10 @@ object FormCadastroPai: TFormCadastroPai
     DataSet = fdQryCadastro
     Left = 872
     Top = 288
+  end
+  object fdQryCodigo: TFDQuery
+    Connection = dmDados.fdCon
+    Left = 872
+    Top = 248
   end
 end

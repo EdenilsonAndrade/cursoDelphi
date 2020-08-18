@@ -54,7 +54,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados;
+uses uDmDados, uBiblioteca;
 
 { TFormConsultaVenda }
 
@@ -68,6 +68,7 @@ procedure TFormConsultaVenda.btnImprimirClick(Sender: TObject);
 begin
   inherited;
   Imprimir;
+  CarregaRelatorio(frVendas);
 end;
 
 procedure TFormConsultaVenda.Consultar;

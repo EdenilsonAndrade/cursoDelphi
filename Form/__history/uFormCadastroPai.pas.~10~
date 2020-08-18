@@ -1,0 +1,129 @@
+unit uFormCadastroPai;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, uDmDados,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.Client, Data.DB,
+  FireDAC.Comp.DataSet, Vcl.Buttons;
+
+type
+  TFormCadastroPai = class(TForm)
+    pnCabecalho: TPanel;
+    btnNovo: TButton;
+    btnGravar: TButton;
+    btnCancelar: TButton;
+    btnExcluir: TButton;
+    btnSair: TButton;
+    fdQryCadastro: TFDQuery;
+    fdUpCadastro: TFDUpdateSQL;
+    fdTransaction: TFDTransaction;
+    dsCadastro: TDataSource;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnGravarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    function GetNameTable(pSql: string): string;
+    procedure SetNewSql;
+    { Private declarations }
+  public
+  vSqlOriginal: string;
+    { Public declarations }
+  end;
+
+var
+  FormCadastroPai: TFormCadastroPai;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormCadastroPai.btnCancelarClick(Sender: TObject);
+begin
+  if fdQryCadastro.State in [dsEdit, dsInsert] then
+  begin
+    fdQryCadastro.Cancel;
+    fdTransaction.RollbackRetaining;
+  end;
+
+end;
+
+procedure TFormCadastroPai.btnExcluirClick(Sender: TObject);
+begin
+  fdQryCadastro.Edit;
+  fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+  fdTransaction.StartTransaction;
+  fdQryCadastro.Post;
+  fdTransaction.CommitRetaining;
+end;
+
+procedure TFormCadastroPai.btnGravarClick(Sender: TObject);
+begin
+  if fdQryCadastro.State in [dsEdit, dsInsert] then
+  begin
+    fdTransaction.StartTransaction;
+    fdQryCadastro.Post;
+    fdTransaction.CommitRetaining;
+    ShowMessage('Cadastro Pronto');
+  end;
+end;
+
+procedure TFormCadastroPai.btnNovoClick(Sender: TObject);
+begin
+  if not (fdQryCadastro.State in [dsEdit, dsInsert]) then
+  begin
+    fdQryCadastro.Insert;
+  end;
+
+end;
+
+procedure TFormCadastroPai.btnSairClick(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure TFormCadastroPai.FormCreate(Sender: TObject);
+begin
+  vSqlOriginal := fdQryCadastro.SQL.Text;
+  fdQryCadastro.Open();
+end;
+
+function TFormCadastroPai.GetNameTable(pSql: string): string;
+var
+  vSQL: TStringList;
+begin
+  vSQL := TStringList.Create;
+  try
+    vSQL.Delimiter := ' ';   // cada espaço que encontrar irá quebrar a linha
+    vSQL.StrictDelimiter :=  True;
+
+    vSQL.DelimitedText := Copy(pSql, Pos('FROM', UpperCase(pSql)), Length(pSql));
+
+    Result := tri4m(vSQL.Strings[1]);
+  finally
+    vSQL.Free;
+  end;
+end;
+
+procedure TFormCadastroPai.SetNewSql;
+var
+  vNewSql: string;
+begin
+  fdQryCadastro.Close;
+  fdQryCadastro.SQL.Clear;
+  vNewSql := 'SELECT * FROM ('+vSqlOriginal+') WHERE ID_'+GetNameTable(vSqlOriginal)+' = :ID_'+ GetNameTable(vSqlOriginal);
+  fdQryCadastro.SQL.Text := vNewSql;
+  fdQryCadastro.Open;
+end;
+
+end.

@@ -4,7 +4,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
   TextHeight = 13
   inherited pnCabecalho: TPanel
     object btnImprimir: TBitBtn
-      Left = 380
+      Left = 477
       Top = 0
       Width = 89
       Height = 41

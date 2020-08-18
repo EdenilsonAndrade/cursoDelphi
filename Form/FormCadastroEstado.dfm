@@ -34,8 +34,8 @@ inherited FormCadastroEstados: TFormCadastroEstados
     Width = 590
     ExplicitWidth = 590
     inherited btnSair: TButton
-      Left = 457
-      ExplicitLeft = 457
+      Left = 501
+      ExplicitLeft = 501
     end
   end
   object DBEdit1: TDBEdit [4]

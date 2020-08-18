@@ -166,6 +166,15 @@ inherited FormConsultaVenda: TFormConsultaVenda
         Top = 90.708720000000000000
         Width = 718.110700000000000000
         Condition = 'frDBVendas."ID_CLIENTE"'
+        object Shape1: TfrxShapeView
+          AllowVectorExport = True
+          Top = 41.574830000000000000
+          Width = 718.110236220000000000
+          Height = 18.897650000000000000
+          Fill.BackColor = 8421631
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
         object frDBVendasCLIENTE: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
@@ -302,6 +311,25 @@ inherited FormConsultaVenda: TFormConsultaVenda
             'Valor Liq.')
           ParentFont = False
         end
+        object Memo13: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 41.574830000000000000
+          Width = 249.448980000000000000
+          Height = 18.897650000000000000
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Produto')
+          ParentFont = False
+        end
       end
       object MasterData1: TfrxMasterData
         FillType = ftBrush
@@ -312,12 +340,14 @@ inherited FormConsultaVenda: TFormConsultaVenda
         DataSet = frDBVendas
         DataSetName = 'frDBVendas'
         RowCount = 0
+        Stretched = True
         object frDBVendasPRODUTO: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
           Left = 3.779530000000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
+          StretchMode = smActualHeight
           DataField = 'PRODUTO'
           DataSet = frDBVendas
           DataSetName = 'frDBVendas'
@@ -539,7 +569,129 @@ inherited FormConsultaVenda: TFormConsultaVenda
           Frame.Typ = []
           HAlign = haRight
           Memo.UTF8W = (
-            'Total:')
+            'Total Cliente:')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Width = 718.110236220472000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Top = 19.795275590000000000
+          Width = 718.110236220000000000
+          Color = clBlack
+          Frame.Style = fsDot
+          Frame.Typ = [ftTop]
+          Frame.Width = 0.100000000000000000
+        end
+      end
+      object Footer1: TfrxFooter
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 264.567100000000000000
+        Width = 718.110700000000000000
+        object Memo14: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 260.787570000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.0n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."QTDE">,MasterData1,1)]')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 438.425480000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."VALOR_BRUTO">,MasterData1,1)]')
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."DESCONTO">,MasterData1,1)]')
+          ParentFont = False
+        end
+        object Memo17: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 616.063390000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."VALOR_LIQ">,MasterData1,1)]')
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 158.740260000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Total Geral:')
           ParentFont = False
         end
       end
