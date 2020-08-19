@@ -3,7 +3,8 @@ unit uBiblioteca;
 interface
 uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes,
   frxClass;
-
+type
+  TNav = (tFirst, tPrior, tNext, tLast, tNil);
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
   function GetValorIni(pLocal, pSessao, pSubsessao: string): string;
   procedure AtualizaFDQry(const pFDQry : TFDQuery; pSQL : string);

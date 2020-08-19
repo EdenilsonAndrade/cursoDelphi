@@ -45,7 +45,7 @@ implementation
 
 {$R *.dfm}
 
-uses uFormCadastroProduto;
+uses uFormCadastroProduto, uBiblioteca;
 
 procedure TFormConsultaProdutos.btnConsultarClick(Sender: TObject);
 begin
@@ -58,6 +58,7 @@ begin
   inherited;
   FormCadastroProduto:= TFormCadastroProduto.Create(Self);
   try
+    FormCadastroProduto.SetRecord(0, tNil);
     FormCadastroProduto.fdQryCadastro.Insert;
     FormCadastroProduto.ShowModal;
   finally
@@ -71,7 +72,7 @@ begin
   ValidaQryVazia;
   FormCadastroProduto := TFormCadastroProduto.Create(Self);
   try
-    FormCadastroProduto.fdQryCadastro.Locate('ID_PRODUTO', fdQryConsultaID_PRODUTO.AsInteger,[]);
+    FormCadastroProduto.SetRecord(fdQryConsultaID_PRODUTO.AsInteger, tNil);
     FormCadastroProduto.ShowModal;
   finally
     FreeAndNil(FormCadastroProduto);

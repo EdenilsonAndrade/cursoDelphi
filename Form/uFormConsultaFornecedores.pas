@@ -43,7 +43,7 @@ implementation
 
 {$R *.dfm}
 
-uses uFormCadastroFornecedor;
+uses uFormCadastroFornecedor, uBiblioteca;
 
 { TFormFiltroPai1 }
 
@@ -58,6 +58,7 @@ begin
   inherited;
   FormCadastroFornecedor:= TFormCadastroFornecedor.Create(Self);
   try
+    FormCadastroFornecedor.SetRecord(0, tNil);
     FormCadastroFornecedor.fdQryCadastro.Insert;
     FormCadastroFornecedor.ShowModal;
   finally
@@ -71,7 +72,7 @@ begin
   ValidaQryVazia;
   FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
   try
-    FormCadastroFornecedor.fdQryCadastro.Locate('ID_FORNECEDOR', fdQryConsultaID_FORNECEDOR.AsInteger,[]);
+    FormCadastroFornecedor.SetRecord(fdQryConsultaID_FORNECEDOR.AsInteger, tNil);
     FormCadastroFornecedor.ShowModal;
   finally
     FreeAndNil(FormCadastroFornecedor);

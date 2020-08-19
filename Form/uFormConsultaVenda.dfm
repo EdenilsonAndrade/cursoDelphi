@@ -83,6 +83,24 @@ inherited FormConsultaVenda: TFormConsultaVenda
       TabOrder = 7
       OnClick = btnImprimirClick
     end
+    object btnVisualizar: TButton
+      Left = 745
+      Top = 33
+      Width = 75
+      Height = 25
+      Caption = 'Visualizar'
+      TabOrder = 8
+      OnClick = btnVisualizarClick
+    end
+    object btnNovo: TButton
+      Left = 664
+      Top = 33
+      Width = 75
+      Height = 25
+      Caption = 'Novo'
+      TabOrder = 9
+      OnClick = btnNovoClick
+    end
   end
   object DBGrid1: TDBGrid [1]
     Left = 0

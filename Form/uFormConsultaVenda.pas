@@ -35,9 +35,13 @@ type
     fdQryRelatorioVALOR_BRUTO: TFloatField;
     fdQryRelatorioDESCONTO: TSingleField;
     fdQryRelatorioVALOR_LIQ: TFloatField;
+    btnVisualizar: TButton;
+    btnNovo: TButton;
     procedure btnConsultarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnVisualizarClick(Sender: TObject);
   private
     procedure Consultar;
     procedure setFiltro(const pQuery: TFDQuery);
@@ -54,7 +58,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados, uBiblioteca;
+uses uDmDados, uBiblioteca, uFormCadastroVenda;
 
 { TFormConsultaVenda }
 
@@ -69,6 +73,32 @@ begin
   inherited;
   Imprimir;
   CarregaRelatorio(frVendas);
+end;
+
+procedure TFormConsultaVenda.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  FormCadastroVenda:= TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(0, tNil);
+    FormCadastroVenda.fdQryCadastro.Insert;
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
+end;
+
+procedure TFormConsultaVenda.btnVisualizarClick(Sender: TObject);
+begin
+  inherited;
+  ValidaQryVazia;
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(fdQryConsulta.FieldByName('ID_VENDA').AsInteger, tNil);
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
 end;
 
 procedure TFormConsultaVenda.Consultar;

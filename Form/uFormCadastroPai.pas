@@ -8,10 +8,9 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.Client, Data.DB,
-  FireDAC.Comp.DataSet, Vcl.Buttons;
+  FireDAC.Comp.DataSet, Vcl.Buttons, uBiblioteca;
 
 type
-  TNav = (tFirst, tPrior, tNext, tLast, tNil);
   TFormCadastroPai = class(TForm)
     pnCabecalho: TPanel;
     btnNovo: TButton;
@@ -34,6 +33,10 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     function GetNameTable(pSql: string): string;
     procedure SetNewSql(pCodigo: Integer);
@@ -51,10 +54,13 @@ implementation
 
 {$R *.dfm}
 
+
+
 procedure TFormCadastroPai.btnCancelarClick(Sender: TObject);
 begin
   if fdQryCadastro.State in [dsEdit, dsInsert] then
   begin
+    fdTransaction.StartTransaction;
     fdQryCadastro.Cancel;
     fdTransaction.RollbackRetaining;
   end;
@@ -83,6 +89,9 @@ end;
 
 procedure TFormCadastroPai.btnNovoClick(Sender: TObject);
 begin
+  if fdQryCadastro.Active then
+    Self.SetRecord(0, tnil);
+
   if not (fdQryCadastro.State in [dsEdit, dsInsert]) then
   begin
     fdQryCadastro.Insert;
@@ -125,7 +134,7 @@ begin
   fdQryCadastro.SQL.Clear;
   vNewSql := 'SELECT * FROM ('+vSqlOriginal+') WHERE ID_'+GetNameTable(vSqlOriginal)+' = :ID_'+ GetNameTable(vSqlOriginal);
   fdQryCadastro.SQL.Text := vNewSql;
-  fdQryCadastro.ParamByName(':ID_'+ GetNameTable(vSqlOriginal)).AsInteger := pCodigo;
+  fdQryCadastro.ParamByName('ID_'+ GetNameTable(vSqlOriginal)).AsInteger := pCodigo;
   fdQryCadastro.Open;
 end;
 
@@ -176,9 +185,45 @@ begin
     vCodigo := fdQryCodigo.FieldByName('ID').AsInteger;
 
     SetNewSql(vCodigo);
-  end;
+  end
+  else
+  if pTipo = tNext then
+  begin
+    vCodigo := fdQryCadastro.FieldByName(vID).AsInteger;
 
+    fdQryCodigo.Close;
+    fdQryCodigo.SQL.Clear;
+    fdQryCodigo.SQL.Add('SELECT MIN('+vID+') ID FROM ' +GetNameTable(vSqlOriginal));
+    fdQryCodigo.SQL.Add(' WHERE '+vID+' > '+IntToStr(vCodigo));
+    fdQryCodigo.Open();
 
+    vCodigo := fdQryCodigo.FieldByName('ID').AsInteger;
+
+    SetNewSql(vCodigo);
+  end
+  else
+  if pTipo = tNil then
+    SetNewSql(0);
+end;
+
+procedure TFormCadastroPai.SpeedButton1Click(Sender: TObject);
+begin
+  SetRecord(0, tFirst);
+end;
+
+procedure TFormCadastroPai.SpeedButton2Click(Sender: TObject);
+begin
+  SetRecord(0, tPrior);
+end;
+
+procedure TFormCadastroPai.SpeedButton3Click(Sender: TObject);
+begin
+  SetRecord(0, tNext);
+end;
+
+procedure TFormCadastroPai.SpeedButton4Click(Sender: TObject);
+begin
+  SetRecord(0, tLast);
 end;
 
 end.

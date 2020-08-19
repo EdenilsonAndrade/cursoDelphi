@@ -31,6 +31,7 @@ object FormCadastroPai: TFormCadastroPai
       Caption = '<<'
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton1Click
     end
     object SpeedButton2: TSpeedButton
       Left = 400
@@ -40,6 +41,7 @@ object FormCadastroPai: TFormCadastroPai
       Caption = '<'
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton2Click
     end
     object SpeedButton3: TSpeedButton
       Left = 424
@@ -49,6 +51,7 @@ object FormCadastroPai: TFormCadastroPai
       Caption = '>'
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
       Left = 448
@@ -58,6 +61,7 @@ object FormCadastroPai: TFormCadastroPai
       Caption = '>>'
       ParentShowHint = False
       ShowHint = True
+      OnClick = SpeedButton4Click
     end
     object btnNovo: TButton
       Left = 0

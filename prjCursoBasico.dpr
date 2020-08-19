@@ -18,7 +18,10 @@ uses
   uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos},
   uFormCadastroProduto in 'Form\uFormCadastroProduto.pas' {FormCadastroProduto},
   uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroVenda},
-  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda};
+  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda},
+  Vcl.Themes,
+  Vcl.Styles,
+  uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios};
 
 {$R *.res}
 
@@ -29,5 +32,6 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
+  Application.CreateForm(TFormConsultaUsuarios, FormConsultaUsuarios);
   Application.Run;
 end.

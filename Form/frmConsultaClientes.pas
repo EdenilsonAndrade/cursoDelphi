@@ -55,7 +55,7 @@ implementation
 
 {$R *.dfm}
 
-uses uFormCadastroCliente;
+uses uFormCadastroCliente, uBiblioteca;
 
 { TFormConsultaClientes }
 
@@ -70,6 +70,7 @@ begin
   inherited;
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
   try
+    FormCadastroCliente.SetRecord(0, tNil);
     FormCadastroCliente.fdQryCadastro.Insert;
     FormCadastroCliente.ShowModal;
   finally
@@ -83,7 +84,7 @@ begin
   ValidaQryVazia;
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
   try
-    FormCadastroCliente.fdQryCadastro.Locate('ID_CLIENTE', fdQryConsultaID_CLIENTE.AsInteger,[]);
+    FormCadastroCliente.SetRecord(fdQryConsultaID_CLIENTE.AsInteger, tNil);
     FormCadastroCliente.ShowModal;
   finally
     FreeAndNil(FormCadastroCliente);
