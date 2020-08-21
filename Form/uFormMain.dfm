@@ -31,7 +31,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 149
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'EPJ Sistemas'
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
     Hints.MDICloseBtnHint = 'Close'
@@ -306,7 +306,7 @@ object FormMain: TFormMain
       object AdvToolBar2: TAdvToolBar
         Left = 292
         Top = 3
-        Width = 229
+        Width = 301
         Height = 86
         AllowFloating = True
         AutoSize = False
@@ -430,6 +430,51 @@ object FormMain: TFormMain
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
         end
+        object btnCadastroUsuario: TAdvGlowButton
+          Left = 196
+          Top = 2
+          Width = 87
+          Height = 71
+          Caption = 'Usu'#225'rios'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 2
+          OnClick = btnCadastroUsuarioClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = clNone
+          Appearance.ColorDisabledTo = clNone
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = clNone
+          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
       end
     end
     object AdvPage2: TAdvPage
@@ -441,7 +486,7 @@ object FormMain: TFormMain
       object AdvToolBar3: TAdvToolBar
         Left = 3
         Top = 3
-        Width = 406
+        Width = 550
         Height = 86
         AllowFloating = True
         AutoSize = False
@@ -477,6 +522,13 @@ object FormMain: TFormMain
         end
         object AdvToolBarSeparator6: TAdvToolBarSeparator
           Left = 186
+          Top = 2
+          Width = 10
+          Height = 66
+          LineColor = clBtnShadow
+        end
+        object AdvToolBarSeparator10: TAdvToolBarSeparator
+          Left = 380
           Top = 2
           Width = 10
           Height = 66
@@ -632,6 +684,51 @@ object FormMain: TFormMain
           Rounded = True
           TabOrder = 3
           OnClick = btnConsultaVendasClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = clNone
+          Appearance.ColorDisabledTo = clNone
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = clNone
+          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
+        object btnConsultaUsuarios: TAdvGlowButton
+          Left = 390
+          Top = 2
+          Width = 87
+          Height = 71
+          Caption = 'Usu'#225'rios'
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          Rounded = True
+          TabOrder = 4
+          OnClick = btnConsultaUsuariosClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

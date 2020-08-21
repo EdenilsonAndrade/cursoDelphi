@@ -74,6 +74,7 @@ begin
   fdTransaction.StartTransaction;
   fdQryCadastro.Post;
   fdTransaction.CommitRetaining;
+  SetRecord(fdQryCadastro.FieldByName('ID_'+ GetNameTable(vSqlOriginal)).AsInteger, tNil);
 end;
 
 procedure TFormCadastroPai.btnGravarClick(Sender: TObject);
@@ -89,7 +90,7 @@ end;
 
 procedure TFormCadastroPai.btnNovoClick(Sender: TObject);
 begin
-  if fdQryCadastro.Active then
+  if not fdQryCadastro.Active then
     Self.SetRecord(0, tnil);
 
   if not (fdQryCadastro.State in [dsEdit, dsInsert]) then
@@ -134,6 +135,7 @@ begin
   fdQryCadastro.SQL.Clear;
   vNewSql := 'SELECT * FROM ('+vSqlOriginal+') WHERE ID_'+GetNameTable(vSqlOriginal)+' = :ID_'+ GetNameTable(vSqlOriginal);
   fdQryCadastro.SQL.Text := vNewSql;
+  fdQryCadastro.SQL.Add(' AND DT_EXCLUIDO IS NULL');
   fdQryCadastro.ParamByName('ID_'+ GetNameTable(vSqlOriginal)).AsInteger := pCodigo;
   fdQryCadastro.Open;
 end;

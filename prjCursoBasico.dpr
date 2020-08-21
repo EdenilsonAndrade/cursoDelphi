@@ -21,7 +21,9 @@ uses
   uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda},
   Vcl.Themes,
   Vcl.Styles,
-  uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios};
+  uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios},
+  uFormCadastroUsuario in 'Form\uFormCadastroUsuario.pas' {FormCadastroUsuario},
+  uCrpt in 'Classes\uCrpt.pas';
 
 {$R *.res}
 
@@ -32,6 +34,5 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
-  Application.CreateForm(TFormConsultaUsuarios, FormConsultaUsuarios);
   Application.Run;
 end.

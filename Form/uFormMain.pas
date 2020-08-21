@@ -44,6 +44,9 @@ type
     AdvGlowButton5: TAdvGlowButton;
     btnCadastroVenda: TAdvGlowButton;
     btnConsultaVendas: TAdvGlowButton;
+    btnConsultaUsuarios: TAdvGlowButton;
+    AdvToolBarSeparator10: TAdvToolBarSeparator;
+    btnCadastroUsuario: TAdvGlowButton;
     procedure btnCadastroClienteClick(Sender: TObject);
     procedure btnCadastroCidadesClick(Sender: TObject);
     procedure btnCadastroEstadoClick(Sender: TObject);
@@ -54,6 +57,8 @@ type
     procedure btnCadastroProdutoClick(Sender: TObject);
     procedure btnCadastroVendaClick(Sender: TObject);
     procedure btnConsultaVendasClick(Sender: TObject);
+    procedure btnConsultaUsuariosClick(Sender: TObject);
+    procedure btnCadastroUsuarioClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -72,7 +77,7 @@ implementation
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
   frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
   uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca,
-  uFormConsultaVenda;
+  uFormConsultaVenda, uFormConsultaUsuarios, uFormCadastroUsuario;
 
 
 procedure TFormMain.btnCadastroCidadesClick(Sender: TObject);
@@ -110,6 +115,11 @@ begin
   ShowForm(TFormConsultaProdutos, FormConsultaProdutos);
 end;
 
+procedure TFormMain.btnConsultaUsuariosClick(Sender: TObject);
+begin
+  ShowForm(TFormConsultaUsuarios, FormConsultaUsuarios);
+end;
+
 procedure TFormMain.btnConsultaVendasClick(Sender: TObject);
 begin
   ShowForm(TFormConsultaVenda, FormConsultaVenda);
@@ -123,6 +133,11 @@ end;
 procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
 begin
   ShowModalForm(TFormCadastroProduto, FormCadastroProduto);
+end;
+
+procedure TFormMain.btnCadastroUsuarioClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroUsuario, FormCadastroUsuario);
 end;
 
 end.

@@ -17,7 +17,12 @@ uses
   uFormConsultaFornecedores in 'Form\uFormConsultaFornecedores.pas' {FormConsultaFornecedor},
   uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos},
   uFormCadastroProduto in 'Form\uFormCadastroProduto.pas' {FormCadastroProduto},
-  uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroPai1};
+  uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroVenda},
+  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda},
+  Vcl.Themes,
+  Vcl.Styles,
+  uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios},
+  uFormCadastroUsuario in 'Form\uFormCadastroUsuario.pas' {FormCadastroPai1};
 
 {$R *.res}
 
