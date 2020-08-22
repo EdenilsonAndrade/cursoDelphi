@@ -24,6 +24,7 @@ object FormMain: TFormMain
   OldCreateOrder = True
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object AdvToolBarPager1: TAdvToolBarPager
@@ -1049,6 +1050,7 @@ object FormMain: TFormMain
       ParentFont = False
       TabOrder = 7
       Version = '6.2.1.7'
+      OnClick = AdvShapeButton1Click
     end
   end
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar

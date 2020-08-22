@@ -23,16 +23,17 @@ uses
   Vcl.Styles,
   uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios},
   uFormCadastroUsuario in 'Form\uFormCadastroUsuario.pas' {FormCadastroUsuario},
-  uCrpt in 'Classes\uCrpt.pas';
+  uCrpt in 'Classes\uCrpt.pas',
+  uFormLogin in 'Form\uFormLogin.pas' {FormLogin};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
-  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
   Application.Run;
 end.

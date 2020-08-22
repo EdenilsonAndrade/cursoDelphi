@@ -68,6 +68,7 @@ type
     frxDadosVenda: TfrxDBDataset;
     frxItensVenda: TfrxDBDataset;
     btnImprimir: TBitBtn;
+    fdQryCadastroDT_EXCLUIDO: TDateField;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);

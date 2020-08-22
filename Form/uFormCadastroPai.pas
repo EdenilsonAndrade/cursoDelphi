@@ -69,12 +69,21 @@ end;
 
 procedure TFormCadastroPai.btnExcluirClick(Sender: TObject);
 begin
-  fdQryCadastro.Edit;
-  fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
-  fdTransaction.StartTransaction;
-  fdQryCadastro.Post;
-  fdTransaction.CommitRetaining;
-  SetRecord(fdQryCadastro.FieldByName('ID_'+ GetNameTable(vSqlOriginal)).AsInteger, tNil);
+  if not fdQryCadastro.IsEmpty then
+  begin
+    if Application.MessageBox('Deseja realmente excluir este registro?','Atenção',MB_YESNO+MB_DEFBUTTON2+MB_ICONWARNING) = IDYES then
+    begin
+      fdQryCadastro.Edit;
+      fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+      fdTransaction.StartTransaction;
+      fdQryCadastro.Post;
+      fdTransaction.CommitRetaining;
+      SetRecord(fdQryCadastro.FieldByName('ID_'+ GetNameTable(vSqlOriginal)).AsInteger, tNil);
+      Application.MessageBox('Registro excluído','',MB_OK);
+    end;
+  end
+  else
+    Application.MessageBox('Não contém registro para ser excluído!','Atenção',MB_OK+MB_ICONWARNING);
 end;
 
 procedure TFormCadastroPai.btnGravarClick(Sender: TObject);

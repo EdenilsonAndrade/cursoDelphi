@@ -204,5 +204,9 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
       Origin = 'EMAIL'
       Size = 255
     end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
   end
 end

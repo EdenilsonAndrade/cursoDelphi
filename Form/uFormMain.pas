@@ -5,7 +5,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
   AdvPreviewMenuStylers, AdvShapeButton, AdvOfficeStatusBar,
-  AdvOfficeStatusBarStylers, AdvGlowButton;
+  AdvOfficeStatusBarStylers, AdvGlowButton, uFormLogin, uBiblioteca;
 
 type
   TFormMain = class(TAdvToolBarForm)
@@ -59,6 +59,8 @@ type
     procedure btnConsultaVendasClick(Sender: TObject);
     procedure btnConsultaUsuariosClick(Sender: TObject);
     procedure btnCadastroUsuarioClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure AdvShapeButton1Click(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -76,9 +78,14 @@ implementation
 
 uses FormCadastroCidade, FormCadastroEstado, uFormCadastroCliente,
   frmConsultaClientes, uFormCadastroFornecedor, uFormConsultaFornecedores,
-  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda, uBiblioteca,
+  uFormConsultaProdutos, uFormCadastroProduto, uFormCadastroVenda,
   uFormConsultaVenda, uFormConsultaUsuarios, uFormCadastroUsuario;
 
+
+procedure TFormMain.AdvShapeButton1Click(Sender: TObject);
+begin
+  ShowModalForm(TFormLogin, FormLogin);
+end;
 
 procedure TFormMain.btnCadastroCidadesClick(Sender: TObject);
 begin
@@ -123,6 +130,11 @@ end;
 procedure TFormMain.btnConsultaVendasClick(Sender: TObject);
 begin
   ShowForm(TFormConsultaVenda, FormConsultaVenda);
+end;
+
+procedure TFormMain.FormCreate(Sender: TObject);
+begin
+  showModalForm(TFormLogin, FormLogin);
 end;
 
 procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);

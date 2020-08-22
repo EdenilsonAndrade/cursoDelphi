@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Mask, Vcl.DBCtrls, MoneyEdit, dbmnyed, AdvEdit, AdvMoneyEdit,
-  DBAdvMoneyEdit;
+  DBAdvMoneyEdit, Vcl.Buttons;
 
 type
   TFormCadastroProduto = class(TFormCadastroPai)
@@ -46,6 +46,7 @@ type
     edtPesoBruto: TDBAdvMoneyEdit;
     Label11: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
+    fdQryCadastroDT_EXCLUIDO: TDateField;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

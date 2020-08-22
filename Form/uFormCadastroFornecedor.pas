@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Vcl.Mask;
+  Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons;
 
 type
   TFormCadastroFornecedor = class(TFormCadastroPai)
@@ -39,6 +39,7 @@ type
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
+    fdQryCadastroDT_EXCLUIDO: TDateField;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }

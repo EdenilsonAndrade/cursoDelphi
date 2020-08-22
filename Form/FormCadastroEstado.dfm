@@ -89,5 +89,9 @@ inherited FormCadastroEstados: TFormCadastroEstados
       Origin = 'COD_UF'
       Size = 2
     end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
   end
 end

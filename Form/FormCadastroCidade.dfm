@@ -32,7 +32,7 @@ inherited FormCadastroCidades: TFormCadastroCidades
   end
   inherited pnCabecalho: TPanel
     Width = 637
-    ExplicitWidth = 561
+    ExplicitWidth = 637
     inherited btnSair: TButton
       Left = 548
       ExplicitLeft = 548
@@ -89,6 +89,10 @@ inherited FormCadastroCidades: TFormCadastroCidades
     object fdQryCadastroCOD_IBGE: TIntegerField
       FieldName = 'COD_IBGE'
       Origin = 'COD_IBGE'
+    end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
     end
   end
   inherited fdUpCadastro: TFDUpdateSQL
