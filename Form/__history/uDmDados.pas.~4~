@@ -33,16 +33,18 @@ procedure TdmDados.CarregaBanco;
 begin
   try
     fdCon.Params.Clear;
-    fdCon.Params.Add('Database='+GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'LOCAL_DB'));
+    fdCon.Params.Add('Database=C:\Users\Avell\Desktop\curso delphi udemy\ProjetoCursoBasico\Banco de dados\DADOS.FDB');
     fdCon.Params.Add('User_Name=sysdba');
     fdCon.Params.Add('Password=masterkey');
     fdCon.Params.Add('Protocol=TCPIP');
-    fdCon.Params.Add('Server='+ GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'SERVER'));
+    fdCon.Params.Add('Server=localhost');
+    fdCon.Params.Add('Port=3050');
     fdCon.Params.Add('CharacterSet=UTF8');
     fdCon.Params.Add('DriverID=FB');
+    fdCon.Params.Database := GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'LOCAL_DB');
     fdCon.Connected := True;
   except
-    ShowModalForm(TFormConfigBanco, FormConfigBanco);
+    FormConfigBanco.ShowModal;
   end;
 end;
 

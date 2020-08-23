@@ -14,7 +14,7 @@ type
   procedure MsgAtencao (pMsg: string);
   procedure MsgInformacao(pMsg: string);
   function MsgPerguntar(pMsg: string; pFocoBtnSim: boolean = true): boolean;
-  procedure MsgErro(pMsg: string);
+  procedure MsgErr(pMsg: string);
 
 implementation
 
@@ -81,20 +81,17 @@ end;
 
 procedure MsgInformacao(pMsg: string);
 begin
-  Application.MessageBox(Pchar(pMsg), 'Informação', MB_ICONINFORMATION + MB_OK);
+
 end;
 
 function MsgPerguntar(pMsg: string; pFocoBtnSim: boolean = true): boolean;
 begin
-  if pFocoBtnSim then
-    Result := Application.MessageBox(Pchar(pMsg), 'Pergunta', MB_ICONQUESTION + MB_YESNO) = IDYES
-  else
-    Result := Application.MessageBox(Pchar(pMsg), 'Pergunta', MB_ICONQUESTION + MB_YESNO + MB_DEFBUTTON2) = ID_YES;
+
 end;
 
-procedure MsgErro(pMsg: string);
+procedure MsgErr(pMsg: string);
 begin
-  Application.MessageBox(Pchar(pMsg), 'Erro', MB_ICONERROR + MB_OK);
+
 end;
 
 end.

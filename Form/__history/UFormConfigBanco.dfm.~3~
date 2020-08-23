@@ -3058,7 +3058,7 @@ object FormConfigBanco: TFormConfigBanco
     Top = 195
     Width = 75
     Height = 25
-    Caption = 'Salvar'
+    Caption = 'Configurar'
     TabOrder = 1
     OnClick = Button1Click
   end
@@ -3068,5 +3068,11 @@ object FormConfigBanco: TFormConfigBanco
     Width = 361
     Height = 21
     TabOrder = 2
+  end
+  object opnDiretorio: TOpenDialog
+    DefaultExt = 'FDB'
+    Filter = 'Firebird|*.FDB'
+    Left = 656
+    Top = 40
   end
 end
