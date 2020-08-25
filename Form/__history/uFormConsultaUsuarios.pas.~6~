@@ -1,0 +1,86 @@
+unit uFormConsultaUsuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmFiltroPai, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFormConsultaUsuarios = class(TFormFiltroPai)
+    DBGrid1: TDBGrid;
+    btnVisualizar: TButton;
+    btnNovo: TButton;
+    procedure btnConsultarClick(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnVisualizarClick(Sender: TObject);
+  private
+    procedure Consultar;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormConsultaUsuarios: TFormConsultaUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+uses uFormCadastroUsuario, uBiblioteca;
+
+procedure TFormConsultaUsuarios.btnConsultarClick(Sender: TObject);
+begin
+  inherited;
+  Consultar;
+end;
+
+procedure TFormConsultaUsuarios.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+   FormCadastroUsuario:= TFormCadastroUsuario.Create(Self);
+  try
+    FormCadastroUsuario.SetRecord(0, tNil);
+    FormCadastroUsuario.fdQryCadastro.Insert;
+    FormCadastroUsuario.ShowModal;
+  finally
+    FreeAndNil(FormCadastroUsuario);
+  end;
+end;
+
+procedure TFormConsultaUsuarios.btnVisualizarClick(Sender: TObject);
+begin
+  inherited;
+  ValidaQryVazia;
+  FormCadastroUsuario := TFormCadastroUsuario.Create(Self);
+  try
+//    FormCadastroUsuario.SetRecord(fdQryConsultaID_USUARIO.AsInteger, tNil);
+    FormCadastroUsuario.ShowModal;
+  finally
+    FreeAndNil(FormCadastroUsuario);
+  end;
+end;
+
+procedure TFormConsultaUsuarios.Consultar;
+begin
+  fdQryConsulta.Close;
+  fdQryConsulta.SQL.Clear;
+  fdQryConsulta.SQL.Add('SELECT U.ID_USUARIO, ');
+  fdQryConsulta.SQL.Add('       U.NOME, ');
+  fdQryConsulta.SQL.Add('       U.LOGIN ');
+  fdQryConsulta.SQL.Add('    FROM USUARIO U ');
+  fdQryConsulta.SQL.Add(' WHERE 1 = 1');
+
+  if edtConsulta.Text <> '' then
+    fdQryConsulta.SQL.Add(' AND UPPER(U.NOME) LIKE'+QuotedStr('%'+UpperCase(edtConsulta.Text)+'%'));
+
+  fdQryConsulta.Open();
+  fdQryConsulta.FetchAll;
+end;
+
+end.

@@ -59,7 +59,7 @@ begin
   ValidaQryVazia;
   FormCadastroUsuario := TFormCadastroUsuario.Create(Self);
   try
-//    FormCadastroUsuario.SetRecord(fdQryConsultaID_USUARIO.AsInteger, tNil);
+    FormCadastroUsuario.SetRecord(fdQryConsulta.FieldByName('ID_USUARIO').AsInteger, tNil);
     FormCadastroUsuario.ShowModal;
   finally
     FreeAndNil(FormCadastroUsuario);

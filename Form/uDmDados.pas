@@ -42,7 +42,11 @@ begin
     fdCon.Params.Add('DriverID=FB');
     fdCon.Connected := True;
   except
-    ShowModalForm(TFormConfigBanco, FormConfigBanco);
+    on E: Exception do
+    begin
+      MsgAtencao(E.Message);
+      ShowModalForm(TFormConfigBanco, FormConfigBanco);
+    end;
   end;
 end;
 

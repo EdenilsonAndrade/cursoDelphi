@@ -18,16 +18,22 @@ uses
   uFormConsultaProdutos in 'Form\uFormConsultaProdutos.pas' {FormConsultaProdutos},
   uFormCadastroProduto in 'Form\uFormCadastroProduto.pas' {FormCadastroProduto},
   uFormCadastroVenda in 'Form\uFormCadastroVenda.pas' {FormCadastroVenda},
-  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormFiltroVenda};
+  uFormConsultaVenda in 'Form\uFormConsultaVenda.pas' {FormConsultaVenda},
+  Vcl.Themes,
+  Vcl.Styles,
+  uFormConsultaUsuarios in 'Form\uFormConsultaUsuarios.pas' {FormConsultaUsuarios},
+  uFormCadastroUsuario in 'Form\uFormCadastroUsuario.pas' {FormCadastroUsuario},
+  uCrpt in 'Classes\uCrpt.pas',
+  uFormLogin in 'Form\uFormLogin.pas' {FormLogin};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
-  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TLookup, Lookup);
   Application.Run;
 end.
