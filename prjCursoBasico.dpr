@@ -31,6 +31,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Aqua Light Slate');
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TLookup, Lookup);
